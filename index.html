@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    <!-- Links -->
+    <link rel="stylesheet" href="/src/sass/styles.scss" />
+    <!-- FAVICON (might change) -->
+    <link rel="shortcut icon" href="/src/images/Weather-favicon-circle.png" type="image/x-icon">
+    <link rel="icon" href="/src/images/Weather-favicon-circle.png" type="image/x-icon">
+    <!-- Font --> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+    <!-- Scripts -->
+    <script defer type="module" src="/src/js/home.js"></script>
+    <title>MyWeather App</title>
+  </head>
+  <body>
+    <div class="overlay"></div>
+    
+    <!-- Next Current Hours SLIDE IN -->
+
+    <div class="hours__slide--wrap">
+
+      <!-- Title  -->
+      <div class="hours__title--box">
+        <div class="exit__icon--wrap"><img class="exit__icon" src="/src/images/CustomExitSvg.svg" alt=""></div>
+        <h4 class="hours__title">Next Hours</h4>
+      </div>
+
+      <!-- Box Container -->
+      <div class="hours__container">
+        
+        <!-- Hour Box One --> 
+        <div class="hour__details--box">
+          <h4 class="hour">10pm</h4>
+          <p class="hour__description">Windy</p>
+          <p class="hour__temp">temp: 10 C</p>
+          <p class="hour__feelslike">feels: 6 C</p>
+        </div>
+
+        <!-- Hour Box Two -->
+        <div class="hour__details--box">
+          <h4 class="hour">10pm</h4>
+          <p class="hour__description">Windy</p>
+          <p class="hour__temp">temp: 10C</p>
+          <p class="hour__feelslike">feels: 116 C</p>
+        </div>
+
+        <!-- Hour Box Three -->
+        <div class="hour__details--box">
+          <h4 class="hour">10pm</h4>
+          <p class="hour__description">Windy</p>
+          <p class="hour__temp">temp: 10C</p>
+          <p class="hour__feelslike">feels: 6C</p>
+        </div>
+
+        <!-- Hour Box Four -->
+        <div class="hour__details--box">
+          <h4 class="hour">10pm</h4>
+          <p class="hour__description">Windy</p>
+          <p class="hour__temp">temp: 10C</p>
+          <p class="hour__feelslike">feels: 6C</p>
+        </div>
+
+        <!-- Hour Box Five -->
+        <div class="hour__details--box">
+          <h4 class="hour">10pm</h4>
+          <p class="hour__description">Windy</p>
+          <p class="hour__temp">temp: 10C</p>
+          <p class="hour__feelslike">feels: 6C</p>
+        </div>
+
+      </div>
+
+    </div>
+    
+               <!-- MAIN CURRENT PAGE -->
+
+    <!-- Header/Date & Time -->
+    <!-- (Might have to remove icon because of search functionality) -->
+    <header class="date--time">
+      <p>12th Feb</p>
+      <h4>08:00</h4>
+      <img src="/src/images/search-icon.svg" alt="">
+    </header>
+
+    <!-- Current Day Main Weather Details -->
+    <section class="current__day--wrap">
+      <!-- Weather icon (Might wrap icon) -->
+      <img class="weather__icon" src="/src/images/cloudPlaceHolder.png" alt="" />
+      <!-- Weather Titles (Temp/Weather) -->
+      <div class="current__weath--titles">
+        <h1 class="curr__temp">13°C</h1>
+        <div class="title__seperator"></div>
+        <h1 class="curr__weath">Raining</h1>
+      </div>
+
+      <!-- Current Weather Details -->
+      <div class="current__weath--details">
+        <div class="sunrise">
+          <p>17:48</p>
+          <p>Sunrise</p>
+        </div>
+
+        <div class="sunset">
+          <p>06:33</p>
+          <p>Sunset</p>
+        </div>
+
+        <div class="feelsLike">
+          <p>3C</p>
+          <p>Feels Like</p>
+        </div>
+
+        <div class="wind">
+          <p>7mph</p>
+          <p>Wind</p>
+        </div>
+
+        <div class="high__temp">
+          <p>20C</p>
+          <p>High</p>
+        </div>
+
+        <div class="low__temp">
+          <p>20C</p>
+          <p>Low</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Location -->
+    <div class="location__wrap">
+      <h4>London</h4>
+    </div>
+
+    <!-- Footer Buttons -->
+    <footer class="footer-btns">
+      <div class="btn__wrap">
+        <button class="week__btn">Week</button>
+      </div>
+
+      <div class="btn__line"></div>
+
+      <div class="btn__wrap">
+        <button class="today__btn">Today</button>
+      </div>
+
+      <div class="btn__line"></div>
+
+      <div class="btn__wrap">
+        <button class="cities__btn">Cities</button>
+      </div>
+
+    </footer>
+
+    <!-- NEXT FIVE DAY FORECAST PAGE -->
+
+    <section class="week__forecast--sect">
+
+      <div class="weeks__container">
+        <div class="weeks__overlay"></div>
+
+          <div class="week__box">
+            <p class="week__day">Monday</p>
+            <div class="week__icon--wrap">
+              <img class="week__icon" src="/src/images/cloudPlaceHolder.png" alt="">
+            </div>
+            <p class="week__date">16th Jan</p>
+            <p class="week__temp">13°C</p>
+            <p class="week__weather">Broken Clouds</p>
+          </div>
+
+          <div class="week__box">
+            <p class="week__day">Monday</p>
+            <div class="week__icon--wrap">
+              <img class="week__icon" src="/src/images/cloudPlaceHolder.png" alt="">
+            </div>
+            <p class="week__date">16th Jan</p>
+            <p class="week__temp">13°C</p>
+            <p class="week__weather">Broken Clouds</p>
+          </div>
+
+          <div class="week__box">
+            <p class="week__day">Monday</p>
+            <div class="week__icon--wrap">
+              <img class="week__icon" src="/src/images/cloudPlaceHolder.png" alt="">
+            </div>
+            <p class="week__date">16th Jan</p>
+            <p class="week__temp">13°C</p>
+            <p class="week__weather">Broken Clouds</p>
+          </div>
+
+          <div class="week__box">
+            <p class="week__day">Monday</p>
+            <div class="week__icon--wrap">
+              <img class="week__icon" src="/src/images/cloudPlaceHolder.png" alt="">
+            </div>
+            <p class="week__date">16th Jan</p>
+            <p class="week__temp">13°C</p>
+            <p class="week__weather">Broken Clouds</p>
+          </div>
+
+          <div class="week__box">
+            <p class="week__day">Monday</p>
+            <div class="week__icon--wrap">
+              <img class="week__icon" src="/src/images/cloudPlaceHolder.png" alt="">
+            </div>
+            <p class="week__date">16th Jan</p>
+            <p class="week__temp">13°C</p>
+            <p class="week__weather">Broken Clouds</p>
+          </div>
+        
+        <img class="right__icon" src="/src/images/right--arrow--icon.svg" alt="">
+
+      </div>
+
+    </section>
+
+    <!-- TOP 10 CITIES PAGE -->
+
+    <section class="cities__forecast--sect">
+      
+      <div class="cities__container">
+        <div class="cities__overlay"></div>
+        
+        <div class="cities__col--1">
+          <div class="cities__box">
+            <h4 class="cities__name">London</h4>
+            <div class="cities__content">
+              <p class="cities__temp">13°C</p>
+              <p class="cities__weath">Raining</p>
+            </div>
+          </div>
+          
+          <div class="cities__box">
+            <h4 class="cities__name">London</h4>
+            <div class="cities__content">
+              <p class="cities__temp">13°C</p>
+              <p class="cities__weath">Raining</p>
+            </div>
+          </div>
+          
+          <div class="cities__box">
+            <h4 class="cities__name">London</h4>
+            <div class="cities__content">
+              <p class="cities__temp">13°C</p>
+              <p class="cities__weath">Raining</p>
+            </div>
+          </div>
+          
+          <div class="cities__box">
+          <h4 class="cities__name">London</h4>
+          <div class="cities__content">
+              <p class="cities__temp">13°C</p>
+              <p class="cities__weath">Raining</p>
+            </div>
+        </div>
+        
+        <div class="cities__box">
+          <h4 class="cities__name">London</h4>
+          <div class="cities__content">
+              <p class="cities__temp">13°C</p>
+              <p class="cities__weath">Raining</p>
+            </div>
+        </div>
+      </div>
+        
+        <div class="cities__col--2">
+          <div class="cities__box">
+            <h4 class="cities__name">London</h4>
+            <div class="cities__content">
+              <p class="cities__temp">13°C</p>
+              <p class="cities__weath">Raining</p>
+            </div>
+          </div>
+          
+          <div class="cities__box">
+            <h4 class="cities__name">London</h4>
+            <div class="cities__content">
+              <p class="cities__temp">13°C</p>
+              <p class="cities__weath">Raining</p>
+            </div>
+          </div>
+          
+          <div class="cities__box">
+            <h4 class="cities__name">London</h4>
+            <div class="cities__content">
+              <p class="cities__temp">13°C</p>
+              <p class="cities__weath">Raining</p>
+            </div>
+          </div>
+          
+          <div class="cities__box">
+            <h4 class="cities__name">London</h4>
+            <div class="cities__content">
+              <p class="cities__temp">13°C</p>
+              <p class="cities__weath">Raining</p>
+            </div>
+          </div>
+          
+          <div class="cities__box">
+            <h4 class="cities__name">London</h4>
+            <div class="cities__content">
+              <p class="cities__temp">13°C</p>
+              <p class="cities__weath">Raining</p>
+            </div>
+          </div>
+        </div>
+       
+        <img class="left__icon" src="/src/images/left--arrow--icon.svg" alt="">
+      </div>
+
+    </section>
+
+  </body>
+</html>

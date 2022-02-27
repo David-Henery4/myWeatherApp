@@ -1,0 +1,69 @@
+
+.current__day--wrap{
+    height: 65%;
+    width: 100%;
+    flex-direction: column;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.weather__icon{
+    width: 8rem;
+    height: 8rem;
+}
+
+.current__weath--titles{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    h1{
+        font-size: 3rem;
+    }
+    // .title__seperator{
+    //     width: 1px;
+    //     height: 60px;
+    //     background-color: white;
+    //     // position: relative;
+    //     // left: 40px;
+    // }
+}
+
+.current__weath--details{
+    height: 50%;
+    width: 100%;
+    background-color: rgba(128, 128, 128, 0.507);
+    backdrop-filter: blur(20px);
+    border-radius: 30px;
+    display: grid;
+    grid-template-areas:
+    "hTemp rain sunrise"
+    "lTemp wind sunset";
+    .high__temp{
+    grid-area: hTemp;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    }
+    .low__temp{
+    @extend .high__temp;
+    grid-area: lTemp;
+    }
+    .sunrise{
+        @extend .high__temp;
+        grid-area: sunrise
+    }
+    .sunset{
+        @extend .high__temp;
+        grid-area: sunset;
+    }
+    .wind{
+        @extend .high__temp;
+        grid-area: wind;
+    }
+    .feelsLike{
+        @extend .high__temp;
+        grid-area: rain;
+    }
+}
