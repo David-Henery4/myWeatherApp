@@ -30,16 +30,16 @@ transition: 0.4s ease-in-out;
         background-color: rgba(0, 0, 0, 0.438);
         z-index: -1;
     }
-    .right__icon{
-        height: 2rem;
-        width: 1.7rem;
-        position: absolute;
-        right: 12px;
-        bottom: 8px;
-        z-index: 10;
-    }
 }
 
+.right__icon{
+    height: 2rem;
+    width: 1.7rem;
+    position: absolute;
+    right: 12px;
+    bottom: 8px;
+    z-index: 10;
+}
 
 .week__box{
     width: 100%;
