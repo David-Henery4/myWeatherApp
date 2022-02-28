@@ -65,3 +65,28 @@ const handlingNextWeekData = function(week){
   overallWeathData2.forecast.nextWeek = next5Days;
   console.log(overallWeathData2);
 };
+
+//            FETCHING CITIES DATA
+
+// Fetching Cities Coords
+
+const fetchCitiesCoords = async function(){
+  const top10Cities = [
+    "London",
+    "Paris",
+    "Moscow",
+    "Dubai",
+    "Tokyo",
+    "Singapore",
+    "Berlin",
+    "Barcelona",
+    "Rome",
+    "New-york",
+  ];
+  const res = await fetch(
+    `http://api.openweathermap.org/geo/1.0/direct?q=Berlin&limit=1&appid=03c0ab070c431f94285f47bf8bf82c9c`
+  );
+  const data = await res.json();
+  console.log(data)
+};
+fetchCitiesCoords()
