@@ -5,6 +5,7 @@ import TimeDateLocal from "./views/timeDateLocalView.js";
 import Hours from "./views/hoursView.js";
 import WeekView from "./views/weekView.js"; 
 import Cities from "./views/citiesView.js";
+import weekView from "./views/weekView.js";
 // import hoursView from "./views/hoursView";
 //
 console.log("Home: Working");
@@ -35,9 +36,14 @@ const currentHours = function(){
   Hours.render(model.overallWeathData2.forecast.hours);
 }
 
+const nextWeekForecase = function(){
+  weekView.render(model.overallWeathData2.forecast.nextWeek);
+}
+
 const init = function(){
   CurrView.currentViewHandler(currentWeather);
   Hours.addHoursHandler(currentHours)
+  weekView.addWeekHandler(nextWeekForecase)
   // TimeDateLocal.timeDateLocalHandler(currentWeather);
 }
 init()
