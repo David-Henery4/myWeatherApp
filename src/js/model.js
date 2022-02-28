@@ -56,11 +56,11 @@ export const fetchForecastData = async function (lat, long) {
 
 const handlingHourlyData = function (hours) {
   const next5Hours = hours.hourly.slice(1, 6);
-  overallWeathData2.forecast.hours = next5Hours
-  console.log(overallWeathData2)
+  overallWeathData2.forecast.hours = next5Hours;
+  console.log(overallWeathData2);
 };
 
-const handlingNextWeekData = function(week){
+const handlingNextWeekData = function (week) {
   const next5Days = week.daily.slice(1, 6);
   overallWeathData2.forecast.nextWeek = next5Days;
   console.log(overallWeathData2);
@@ -70,7 +70,7 @@ const handlingNextWeekData = function(week){
 
 // Fetching Cities Coords
 
-const fetchCitiesCoords = async function(){
+const fetchCitiesCoords = async function () {
   const top10Cities = [
     "London",
     "Paris",
@@ -83,10 +83,17 @@ const fetchCitiesCoords = async function(){
     "Rome",
     "New-york",
   ];
-  const res = await fetch(
-    `http://api.openweathermap.org/geo/1.0/direct?q=Berlin&limit=1&appid=03c0ab070c431f94285f47bf8bf82c9c`
-  );
-  const data = await res.json();
-  console.log(data)
+  //
+  const cityLocations = [];
+  await Promise.all(
+    top10Cities.map( async (city,i) => {
+      const res = await fetch(
+        `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=03c0ab070c431f94285f47bf8bf82c9c`
+      );
+      const data = await res.json();
+      cityLocations.push(data)
+    })
+  )
+  console.log(cityLocations.flat());
 };
-fetchCitiesCoords()
+fetchCitiesCoords();
