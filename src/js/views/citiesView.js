@@ -6,6 +6,8 @@ class Cities extends View {
     this._openCities()
     this._closeCities()
   }
+  // _parentElements = document.querySelectorAll(".cities__details")
+  
   _citiesSection = document.querySelector(".cities__forecast--sect");
   _citiesBtn = document.querySelector(".cities__btn");
   _closeBtn = document.querySelector(".left__icon");
@@ -16,12 +18,18 @@ class Cities extends View {
   
   _openCities(){
       this._citiesBtn.addEventListener("click", this._toggleCities.bind(this))
-      console.log("open Cities")
   };
   _closeCities(){
       this._closeBtn.addEventListener("click", this._toggleCities.bind(this))
-      console.log("close Cities")
   };
+  
+  addCityHandler(handler){
+  this._citiesBtn.addEventListener("click", handler)
+  }
+
+  _generateMarkup(){
+    return 
+  }
 }
 
 export default new Cities()

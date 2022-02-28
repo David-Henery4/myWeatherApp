@@ -48,6 +48,7 @@ const init = function(){
   CurrView.currentViewHandler(currentWeather);
   Hours.addHoursHandler(currentHours)
   weekView.addWeekHandler(nextWeekForecase)
+  Cities.addCityHandler(citiesForecast)
   // TimeDateLocal.timeDateLocalHandler(currentWeather);
 }
 init()
