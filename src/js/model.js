@@ -41,7 +41,7 @@ function handlingCurWeather(data) {
   console.log(overallWeathData2);
 }
 
-//            FETCHING CURRENT DAY FORCAST
+//            FETCHING CURRENT DAY HOURS FORCAST
 
 export const fetchForecastData = async function (lat, long) {
   const URL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude=current&units=metric&appid=03c0ab070c431f94285f47bf8bf82c9c`;
@@ -58,28 +58,10 @@ const handlingHourlyData = function (hours) {
   const next5Hours = hours.hourly.slice(1, 6);
   overallWeathData2.forecast.hours = next5Hours
   console.log(overallWeathData2)
-  // const currentHour = new Date(next5Hours[0].dt * 1000)
-  // const local = navigator.language;
-  // const options = {
-  //   hour: 'numeric',
-  //   hour12: true,
-  //   weekday: "long",
-  // }
-  // console.log(new Intl.DateTimeFormat(local,options).format(currentHour))
 };
 
 const handlingNextWeekData = function(week){
   const next5Days = week.daily.slice(1, 6);
   overallWeathData2.forecast.nextWeek = next5Days;
   console.log(overallWeathData2);
-  // const tomorrowDate = new Date(next5Days[0].dt * 1000);
-  // const local = navigator.language;
-  // const options = {
-  //   weekday: "long",
-  //   day: "numeric",
-  //   month: "long",
-  // }
-  // console.log(new Intl.DateTimeFormat(local,options).format(tomorrowDate))
 };
-
-
