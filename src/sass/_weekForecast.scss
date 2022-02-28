@@ -39,6 +39,7 @@ transition: 0.4s ease-in-out;
     border-top: 1px solid white;
     text-align: center;
     display: grid;
+    grid-template-columns:75px 1fr 1fr 1fr 1fr 75px;
     grid-template-areas:
     "day . i i . date"
     ". . i i . ."
@@ -47,6 +48,7 @@ transition: 0.4s ease-in-out;
     ". weath weath weath weath .";
     .week__day{
         grid-area: day;
+        // text-align: left;
     }
     .week__icon--wrap{
         grid-area: i;
@@ -62,6 +64,7 @@ transition: 0.4s ease-in-out;
     }
     .week__date{
         grid-area: date;
+        // text-align: right;
     }
     .week__temp{
         grid-area: temp;

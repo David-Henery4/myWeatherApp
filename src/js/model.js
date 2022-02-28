@@ -62,16 +62,24 @@ const handlingHourlyData = function (hours) {
   // const local = navigator.language;
   // const options = {
   //   hour: 'numeric',
-  //   hour12:true,
+  //   hour12: true,
+  //   weekday: "long",
   // }
   // console.log(new Intl.DateTimeFormat(local,options).format(currentHour))
 };
 
 const handlingNextWeekData = function(week){
   const next5Days = week.daily.slice(1, 6);
-  // console.log(new Date(next5Days[0].dt * 1000))
-  overallWeathData2.forecast.nextWeek = next5Days
-  console.log(overallWeathData2)
+  overallWeathData2.forecast.nextWeek = next5Days;
+  console.log(overallWeathData2);
+  // const tomorrowDate = new Date(next5Days[0].dt * 1000);
+  // const local = navigator.language;
+  // const options = {
+  //   weekday: "long",
+  //   day: "numeric",
+  //   month: "long",
+  // }
+  // console.log(new Intl.DateTimeFormat(local,options).format(tomorrowDate))
 };
 
 
