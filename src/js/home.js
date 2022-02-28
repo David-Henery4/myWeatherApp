@@ -40,6 +40,10 @@ const nextWeekForecase = function(){
   weekView.render(model.overallWeathData2.forecast.nextWeek);
 }
 
+const citiesForecast = function(){
+  model.fetchCitiesCoords()
+}
+
 const init = function(){
   CurrView.currentViewHandler(currentWeather);
   Hours.addHoursHandler(currentHours)

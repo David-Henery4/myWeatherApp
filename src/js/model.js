@@ -12,6 +12,7 @@ export const overallWeathData2 = {
 };
 
 //       FETCHING WEATHER DATA (from openweathermap)
+//                 FOR CURRENT USER LOCATION
 
 //          current weather data (metric)
 export const fetchWeatherCurrent = async function (lat, long) {
@@ -42,6 +43,7 @@ function handlingCurWeather(data) {
 }
 
 //            FETCHING CURRENT DAY HOURS FORCAST
+//                 FOR CURRENT USER
 
 export const fetchForecastData = async function (lat, long) {
   const URL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude=current&units=metric&appid=03c0ab070c431f94285f47bf8bf82c9c`;
@@ -69,16 +71,15 @@ const handlingNextWeekData = function (week) {
 //            FETCHING CITIES DATA
 
 // Fetching Cities Coords
-
-const fetchCitiesCoords = async function () {
+export const fetchCitiesCoords = async function () {
   const top10Cities = [
     "London",
-    "Paris",
+    "Lisbon",
     "Moscow",
-    "Dubai",
-    "Tokyo",
+    "Rio-de-janeiro",
+    "Mexico-city",
     "Singapore",
-    "Berlin",
+    "Melbourne",
     "Barcelona",
     "Rome",
     "New-york",
@@ -86,14 +87,39 @@ const fetchCitiesCoords = async function () {
   //
   const cityLocations = [];
   await Promise.all(
-    top10Cities.map( async (city,i) => {
+    top10Cities.map(async (city, i) => {
       const res = await fetch(
         `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=03c0ab070c431f94285f47bf8bf82c9c`
       );
       const data = await res.json();
-      cityLocations.push(data)
+      cityLocations.push(data);
     })
-  )
-  console.log(cityLocations.flat());
+  );
+  const cityCoordsRay = cityLocations.flat();
+  fetchCitiesData(cityCoordsRay);
 };
-fetchCitiesCoords();
+
+
+
+// Fetching cities current data
+const fetchCitiesData = async function (cityCoords) {
+  console.log(cityCoords);
+  /////////////////////
+  const cityData = [];
+  await Promise.all(
+    cityCoords.map(async (city) => {
+      const res = await fetch(
+        `http://api.openweathermap.org/data/2.5/weather?lat=${city.lat}&lon=${city.lon}&appid=03c0ab070c431f94285f47bf8bf82c9c`
+      );
+      const data = await res.json();
+      cityData.push(data);
+    })
+  );
+  cityData.map(city => {
+    if (city.name === "Chiado") city.name = "Lisbon";
+    if (city.name === "Sant Pere, Santa Caterina i La Ribera") city.name = "Barcelona"
+  })
+  overallWeathData2.cities = cityData;
+  console.log(overallWeathData2);
+  ///////////////////
+};
