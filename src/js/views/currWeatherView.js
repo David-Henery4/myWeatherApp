@@ -1,5 +1,6 @@
 import View from "./view.js";
 import cloudPlaceHolder from "url:../../images/cloudPlaceHolder.png";
+import * as config from "../config.js";
 class CurrView extends View {
   _parentElement = document.querySelector(".current__day--wrap");
   // _iconElement = document.querySelector("")
@@ -14,6 +15,12 @@ class CurrView extends View {
     const min = newTime.getMinutes().toString().padStart(2,0)
     return `${hour}:${min}`
   }
+
+  _dynamicBackgrounds(){
+    const randomClouds = config.BACKGROUNDCLOUDY__DAY[Math.floor(Math.random() * config.BACKGROUNDCLOUDY__DAY.length)]
+    
+  }
+
   
   _generateMarkup() {
     return `<img class="weather__icon" src="http://openweathermap.org/img/wn/${
