@@ -19,18 +19,7 @@ class TimeDateLocal extends View {
           <h4>${this._data.locationName}</h4>`;
   }
 
-  _formatOrdinalDate(d) {
-    return (
-      d +
-      (31 == d || 21 == d || 1 == d
-        ? "st"
-        : 22 == d || 2 == d
-        ? "nd"
-        : 23 == d || 3 == d
-        ? "rd"
-        : "th")
-    );
-  }
+
 
   getCurrentDateTime() {
     // const month = date.getMonth() + 1;
@@ -41,7 +30,7 @@ class TimeDateLocal extends View {
       const hour = date.getHours().toString().padStart(2, 0);
       const mins = date.getMinutes().toString().padStart(2, 0);
       const monthName = date.toDateString().split(" ")[1];
-      const fullDate = `${this._formatOrdinalDate(dayOFMonth)} ${monthName}`;
+      const fullDate = `${this.formatOrdinalDate(dayOFMonth)} ${monthName}`;
       const time = `${hour}:${mins}`;
       this._generateCurrentDateTime(time, fullDate);
     }, 1000);

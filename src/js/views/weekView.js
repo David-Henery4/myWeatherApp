@@ -38,7 +38,8 @@ class WeekView extends View {
       day: "numeric",
       month: "long",
     };
-    const dateSplit = (new Intl.DateTimeFormat(local, options).format(date)).split(",")
+    const dateSplit = (new Intl.DateTimeFormat(local, options).format(date)).split(" ")
+    console.log(dateSplit)
     return dateSplit
   }
 
@@ -47,11 +48,15 @@ class WeekView extends View {
       .map((day) => {
         return `
       <div class="week__box">
-            <p class="week__day">${this.gettingDate(day.dt)[0]}</p>
+            <p class="week__day">${this.gettingDate(day.dt)[0].slice(0, -1)}</p>
             <div class="week__icon--wrap">
-              <img class="week__icon" src="http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png" alt="">
+              <img class="week__icon" src="http://openweathermap.org/img/wn/${
+                day.weather[0].icon
+              }@2x.png" alt="">
             </div>
-            <p class="week__date">${this.gettingDate(day.dt)[1]}</p>
+            <p class="week__date">${this.formatOrdinalDate(
+              this.gettingDate(day.dt)[1]
+            )} ${this.gettingDate(day.dt)[2]}</p>
             <p class="week__temp">${day.temp.max}°C</p>
             <p class="week__weather">${day.weather[0].description}</p>
           </div>`;
