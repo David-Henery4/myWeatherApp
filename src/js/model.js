@@ -98,7 +98,7 @@ export const fetchCitiesCoords = async function () {
   const cityCoordsRay = cityLocations.flat();
   fetchCitiesData(cityCoordsRay);
 };
-
+fetchCitiesCoords()
 
 
 // Fetching cities current data
@@ -109,7 +109,7 @@ const fetchCitiesData = async function (cityCoords) {
   await Promise.all(
     cityCoords.map(async (city) => {
       const res = await fetch(
-        `http://api.openweathermap.org/data/2.5/weather?lat=${city.lat}&lon=${city.lon}&appid=03c0ab070c431f94285f47bf8bf82c9c`
+        `http://api.openweathermap.org/data/2.5/weather?lat=${city.lat}&lon=${city.lon}&units=metric&appid=03c0ab070c431f94285f47bf8bf82c9c`
       );
       const data = await res.json();
       cityData.push(data);
@@ -119,6 +119,8 @@ const fetchCitiesData = async function (cityCoords) {
     if (city.name === "Chiado") city.name = "Lisbon";
     if (city.name === "Sant Pere, Santa Caterina i La Ribera") city.name = "Barcelona"
   })
+  // sort and distribute
+  cityData.sort((a, b) => a.name.localeCompare(b.name));
   overallWeathData2.cities = cityData;
   console.log(overallWeathData2);
   ///////////////////

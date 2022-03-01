@@ -28,7 +28,6 @@ const currentWeather = async function () {
     await model.fetchForecastData(latitude, longitude);
     CurrView.render(model.overallWeathData2.current);
     TimeDateLocal.render(model.overallWeathData2.current);
-    // move hours to 'current hours function once find the problem in added html
   });
 };
 
@@ -40,8 +39,11 @@ const nextWeekForecase = function(){
   weekView.render(model.overallWeathData2.forecast.nextWeek);
 }
 
-const citiesForecast = function(){
-  model.fetchCitiesCoords()
+const citiesForecast = async function(){
+  // try to call here
+  // await model.fetchCitiesCoords()
+  Cities.render(model.overallWeathData2.cities)
+  console.log(model.overallWeathData2)
 }
 
 const init = function(){

@@ -49,9 +49,10 @@ grid-template-rows: 20% 20% 20% 20% 20%;
         margin-top: 5px;
     }
 }
-.right__box{
+.cities__box:nth-child(even){
     border-left: 2px solid white;
 }
+// nth child odd to get borders
 .cities__box:nth-child(1),
 .cities__box:nth-child(2){
     border-top: none;
