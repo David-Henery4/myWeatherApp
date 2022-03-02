@@ -4,22 +4,25 @@ import searchIcon from "url:../../images/search-icon.svg";
 class TimeDateLocal extends View {
   _parentElement = document.querySelector(".location__wrap");
   _dateTimeElement = document.querySelector(".date--time");
+  _searchBtn = document.querySelector(".search__icon");
 
   constructor() {
     super();
     this.getCurrentDateTime();
+    this._searchMethod()
   }
 
-  // timeDateLocalHandler(handler) {
-  //   window.addEventListener("load", handler);
-  // }
+  _searchMethod() {
+    this._dateTimeElement.addEventListener("click", function(e){
+      if (!e.target.classlist === "search__icon")return
+      console.log(e.target)
+    })
+  };
 
   _generateMarkup() {
     return `
           <h4>${this._data.locationName}</h4>`;
   }
-
-
 
   getCurrentDateTime() {
     // const month = date.getMonth() + 1;
@@ -43,7 +46,7 @@ class TimeDateLocal extends View {
       "afterbegin",
       `<p>${date}</p>
       <h4>${time}</h4>
-      <img src="${searchIcon}" alt="">`
+      <img class="search__icon" src="${searchIcon}" alt="">`
     );
   }
 }
