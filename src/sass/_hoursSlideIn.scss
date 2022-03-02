@@ -8,13 +8,23 @@
     width: 14rem;
     transform: translateX(-100%); // change back to -100%
     transition: .5s ease-in-out;
-    z-index: 10;
+    z-index: 20;
 }
-// Actives slide class
+// Actives slide classes
 .slide-hours{
     transform: translateX(0%);
     transition: .5s ease-in-out;
     // display: none;
+}
+.hours__overlay--active{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.644);
+    z-index: 1;
+    transition: .5s ease-in-out;
 }
 
 .hours__title--box{

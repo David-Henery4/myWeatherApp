@@ -3,6 +3,7 @@ import CustomExitSvg from "url:../../images/CustomExitSvg.svg";
 class Hours extends View {
   _parentElement = document.querySelector(".hours__container");
   _hoursCompleteSection = document.querySelector(".hours__slide--wrap");
+  _hoursOverlay = document.querySelector(".hours__overlay")
   _hoursBtn = document.querySelector(".today__btn");
   _exitHoursBtn = document.querySelector(".exit__icon");
   // 
@@ -14,16 +15,18 @@ class Hours extends View {
 
   _toggleSlide() {
     this._hoursCompleteSection.classList.toggle("slide-hours");
+    this._hoursOverlay.classList.toggle("hours__overlay--active");
   }
 
   addSlide() {
     this._hoursBtn.addEventListener("click", this._toggleSlide.bind(this));
   }
-
   removeSlide() {
     this._exitHoursBtn.addEventListener("click", this._toggleSlide.bind(this));
+    this._hoursOverlay.addEventListener("click", this._toggleSlide.bind(this));
     // (Only needed event delegation when the element are dynamicly created because we cant add event to them)
   }
+
 
   addHoursHandler(handler) {
     this._hoursBtn.addEventListener("click", handler);
