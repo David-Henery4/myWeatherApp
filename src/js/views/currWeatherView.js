@@ -40,8 +40,6 @@ class CurrView extends View {
     if (this._data.weathType === "Rain" || "Drizzle"){
       console.log("weather")
       console.log(this._data.weathType === "Rain");
-      // image = randomRain
-      // randomRain
       this._generateBackground(randomRain)
     }
 
@@ -56,9 +54,8 @@ class CurrView extends View {
     // document.body.style.backgroundImage =
     //   "url(../../src/images/clear-skies-morning.jpg)";
     // this._bodyElement.style.backgroundImage = image
-    console.log(typeof image)
-    console.log(typeof cloudy)
-    console.log(cloudy)
+    // console.log(typeof image)
+    // console.log(typeof cloudy)
     console.log(image)
   }
 
