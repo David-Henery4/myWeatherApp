@@ -27,61 +27,68 @@ class CurrView extends View {
     const min = newTime.getMinutes().toString().padStart(2,0)
     return `${hour}:${min}`
   }
-  
-  // maybe refactor with parent(Alot of repeating code)
-  _dynamicBackgrounds(){
-    // Sunny Weather Background
-    const randomSunny = config.BACKGROUNDSUN__DAY[Math.floor(Math.random() * config.BACKGROUNDSUN__DAY.length)];
-    // Snowy Weather Background
-    const snow = config.BACKGROUNDSNOW__DAY-Math.floor(Math.random()* config.BACKGROUNDSNOW__DAY.length);
-    // Cloudy Weather Background
-    const randomClouds = config.BACKGROUNDCLOUDY__DAY[Math.floor(Math.random() * config.BACKGROUNDCLOUDY__DAY.length)]
-    // Partial Cloudy Weather
-    const randomPartialClouds = config.BACKGROUNDPARTCLOUDY__DAY[Math.floor(Math.random() * config.BACKGROUNDPARTCLOUDY__DAY.length)]
-    // Raining Weather Background
-    const randomRain = config.BACKGROUNDRAIN__DAY[Math.floor(Math.random() * config.BACKGROUNDRAIN__DAY.length)]
-    // ThunderStorm Weather BackGround
-    const randomLightning = config.BACKGROUNDLIGHTN__DAY[Math.floor(Math.random() * config.BACKGROUNDLIGHTN__DAY.length)]
-    // Foggy Weather Background
-    const randomFog = config.BACKGROUNDFOG__DAY[Math.floor(Math.random() * config.BACKGROUNDFOG__DAY)]
-    ////////
 
-    // Show Snow
-    if (this._data.weathType === "Snow"){
-      this._generateBackground(snow)
+  // could move to view if we wanted to re-use for other sections
+  _randomBackgrounds(imageArray){
+  const image = imageArray[Math.floor(Math.random() * imageArray.length)]
+  return image
+  }
+  
+  _dynamicBackgrounds(){
+    // Snowy Weather Background
+    if (this._data.weathType === "Snow") {
+      const snow = this._randomBackgrounds(config.BACKGROUNDSNOW__DAY);
+      this._generateBackground(snow);
     }
-    // Show Clouds
-    if (this._data.weathType === "Clouds"){
+
+    // Cloudy Weather Background
+    if (this._data.weathType === "Clouds") {
+      const randomClouds = this._randomBackgrounds(
+        config.BACKGROUNDCLOUDY__DAY
+      );
       this._generateBackground(randomClouds);
     }
-    // Show Partial Clouds
+
+    // Partial Cloudy Weather
     if (
       this._data.WeathDescript === "scattered clouds" ||
       this._data.WeathDescript === "few clouds"
     ) {
+      const randomPartialClouds = this._randomBackgrounds(
+        config.BACKGROUNDPARTCLOUDY__DAY
+      );
       this._generateBackground(randomPartialClouds);
     }
-    // Show Rain
+
+    // Raining Weather Background
     if (this._data.weathType === "Rain" || this._data.weathType === "Drizzle") {
+      const randomRain = this._randomBackgrounds(config.BACKGROUNDRAIN__DAY);
       this._generateBackground(randomRain);
     }
-    // Show Clear
-    if (this._data.weathType === "Clear"){
-      this._generateBackground(randomSunny)
+
+    // Sunny Weather Background
+    if (this._data.weathType === "Clear") {
+      const randomSunny = this._randomBackgrounds(config.BACKGROUNDSUN__DAY);
+      this._generateBackground(randomSunny);
     }
-    // Show Storm
+
+    // ThunderStorm Weather BackGround
     if (this._data.weathType === "Thunderstorm") {
+      const randomLightning = this._randomBackgrounds(
+        config.BACKGROUNDLIGHTN__DAY
+      );
       this._generateBackground(randomLightning);
     }
-    // Show Fog
+
+    // Foggy Weather Background
     if (this._data.weathType === "Fog") {
+      const randomFog = this._randomBackgrounds(config.BACKGROUNDFOG__DAY);
       this._generateBackground(randomFog);
     }
   }
 
   _generateBackground(image){
     document.body.style.backgroundImage = `url(${image})`;
-    // console.log(image)
   }
   
   _generateMarkup() {
