@@ -1,17 +1,116 @@
 //        Dynamic weather background images
+// import dampDrizzle from "url:../images/*.jpg";
+import backgroundImage from "url:../images/foggy.jpg";
+import dampDrizzle from "url:../images/damp-drizzle.jpg";
+import rainLondon from "url:../images/rain-london.jpg";
+import rainWindow from "url:../images/rain-window.jpg";
+import rain from "url:../images/rain.jpg";
+import raining from "url:../images/raining.jpg";
 
 // might have to import images with "url"?
-//
 
 // Day Raining sources
 export const BACKGROUNDRAIN__DAY = [
-  "url(/src/images/damp-drizzle.jpg)",
-  "url(/src/images/rain-london.jpg)",
-  "url(/src/images/rain-window.jpg)",
-  "url(/src/images/rain.jpg)",
-  "url(/src/images/raining.jpg)",
+  dampDrizzle,
+  rainLondon,
+  rainWindow,
+  rain,
+  raining,
 ];
 
+// export const BACKGROUNDRAIN__DAY = [
+//   "url:../../images/damp-drizzle.jpg",
+//   "url:../../images/rain-london.jpg",
+//   "url:../../images/rain-window.jpg",
+//   "url:../../images/rain.jpg",
+//   "url:../../images/raining.jpg",
+// ];
+// export const BACKGROUNDRAIN__DAY = [
+//   "url(../../src/images/damp-drizzle.jpg)",
+//   "url(../../src/images/rain-london.jpg)",
+//   "url(../../src/images/rain-window.jpg)",
+//   "url(../../src/images/rain.jpg)",
+//   "url(../../src/images/raining.jpg)",
+// ];
+
+// tired this way
+// export const BACKGROUNDRAIN__DAY = [
+//   "url(../src/images/damp-drizzle.jpg)",
+//   "url(../src/images/rain-london.jpg)",
+//   "url(../src/images/rain-window.jpg)",
+//   "url(../src/images/rain.jpg)",
+//   "url(../src/images/raining.jpg)",
+// ];
+
+// tried this way
+// export const BACKGROUNDRAIN__DAY = [
+//     "url('damp-drizzle.jpg')",
+//     "url('rain-london.jpg')",
+//     "url('rain-window.jpg')",
+//     "url('rain.jpg')",
+//     "url('raining.jpg')",
+//   ];
+
+// // tried this way
+// export const BACKGROUNDRAIN__DAY = [
+//     "url('../../src/images/damp-drizzle.jpg')",
+//     "url('../../src/images/rain-london.jpg')",
+//     "url('../../src/images/rain-window.jpg')",
+//     "url('../../src/images/rain.jpg')",
+//     "url('../../src/images/raining.jpg')",
+//   ];
+
+// tried this way
+// export const BACKGROUNDRAIN__DAY = [
+//   url(src/images/damp-drizzle.jpg),
+//   url(src/images/rain-london.jpg),
+//   url(src/images/rain-window.jpg),
+//   url(src/images/rain.jpg),
+//   url(src/images/raining.jpg),
+// ];
+
+// export const BACKGROUNDRAIN__DAY = [
+//   url(src/images/damp-drizzle.jpg),
+//   url(src/images/rain-london.jpg),
+//   url(src/images/rain-window.jpg),
+//   url(src/images/rain.jpg),
+//   url(src/images/raining.jpg),
+// ];
+
+// tired this way
+// export const BACKGROUNDRAIN__DAY = [
+//   "url('../../src/images/damp-drizzle.jpg')",
+//   "url('../../src/images/rain-london.jpg')",
+//   "url('../../src/images/rain-window.jpg')",
+//   "url('../../src/images/rain.jpg')",
+//   "url('../../src/images/raining.jpg')",
+// ];
+
+// export const BACKGROUNDRAIN__DAY = [
+//   "url('../src/images/damp-drizzle.jpg')",
+//   "url('../src/images/rain-london.jpg')",
+//   "url('../src/images/rain-window.jpg')",
+//   "url('../src/images/rain.jpg')",
+//   "url('../src/images/raining.jpg')",
+// ];
+
+// export const BACKGROUNDRAIN__DAY = [
+//   "url('src/images/damp-drizzle.jpg')",
+//   "url('src/images/rain-london.jpg')",
+//   "url('src/images/rain-window.jpg')",
+//   "url('src/images/rain.jpg')",
+//   "url('src/images/raining.jpg')",
+// ];
+
+// export const BACKGROUNDRAIN__DAY = [
+//   "url(src/images/damp-drizzle.jpg)",
+//   "url(src/images/rain-london.jpg)",
+//   "url(src/images/rain-window.jpg)",
+//   "url(src/images/rain.jpg)",
+//   "url(src/images/raining.jpg)",
+// ];
+
+///////////////////////////////////////////
 // day sunny sources
 export const BACKGROUNDSUN__DAY = [
   "url(/src/images/clear-skies-morning.jpg)",
@@ -46,11 +145,11 @@ export const BACKGROUNDLIGHTN__DAY = [
 
 // day cloudy sources
 export const BACKGROUNDCLOUDY__DAY = [
-  "url(/src/images/clouds.jpg)",
-  "url(/src/images/cloudy-morning.jpg)",
-  "url(/src/images/cloudy-overcast.jpg)",
-  "url(/src/images/cloudy.jpg)",
-  "url(/src/images/overcast.jpg)",
+  "url('../src/images/clouds.jpg')",
+  "url('../src/images/cloudy-morning.jpg')",
+  "url('../src/images/cloudy-overcast.jpg')",
+  "url('../src/images/cloudy.jpg')",
+  "url('../src/images/overcast.jpg')",
 ];
 
 // day part cloudy sources

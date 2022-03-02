@@ -1,9 +1,21 @@
 import View from "./view.js";
 import cloudPlaceHolder from "url:../../images/cloudPlaceHolder.png";
 import * as config from "../config.js";
+import cloudy from "url:../../images/clouds.jpg"
+import clear__skies from "url:../../images/clear-skies.jpg"
+// let image;
+// import backgroundImage from "url:../../images/foggy.jpg";
+
+//
+
 class CurrView extends View {
   _parentElement = document.querySelector(".current__day--wrap");
-  // _iconElement = document.querySelector("")
+  // _bodyElement = document.querySelector("#body__images")
+
+  constructor(){
+    super()
+    // this._dynamicBackgrounds()
+  }
 
   currentViewHandler(handler) {
     window.addEventListener("load", handler)
@@ -18,7 +30,36 @@ class CurrView extends View {
 
   _dynamicBackgrounds(){
     const randomClouds = config.BACKGROUNDCLOUDY__DAY[Math.floor(Math.random() * config.BACKGROUNDCLOUDY__DAY.length)]
-    
+    if (this._data.weathType === "Clouds"){
+      console.log(randomClouds)
+      console.log(this._data.weathType === "Clouds");
+      this._generateBackground(randomClouds);
+    }
+
+    const randomRain = config.BACKGROUNDRAIN__DAY[Math.floor(Math.random() * config.BACKGROUNDRAIN__DAY.length)]
+    if (this._data.weathType === "Rain" || "Drizzle"){
+      console.log("weather")
+      console.log(this._data.weathType === "Rain");
+      // image = randomRain
+      // randomRain
+      this._generateBackground(randomRain)
+    }
+
+    const randomSunny = config.BACKGROUNDSUN__DAY[Math.floor(Math.random() * config.BACKGROUNDSUN__DAY.length)]
+  }
+
+  _generateBackground(image){
+    document.body.style.backgroundImage = `url(${image})`;
+    // document.body.style.backgroundImage = `url(${cloudy})`
+    // document.body.style.backgroundImage =
+    //   `url(${clear__skies})`;
+    // document.body.style.backgroundImage =
+    //   "url(../../src/images/clear-skies-morning.jpg)";
+    // this._bodyElement.style.backgroundImage = image
+    console.log(typeof image)
+    console.log(typeof cloudy)
+    console.log(cloudy)
+    console.log(image)
   }
 
   
