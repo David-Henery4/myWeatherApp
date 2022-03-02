@@ -27,38 +27,62 @@ class CurrView extends View {
     const min = newTime.getMinutes().toString().padStart(2,0)
     return `${hour}:${min}`
   }
-
+  
+  // maybe refactor with parent(Alot of repeating code)
   _dynamicBackgrounds(){
+    // Sunny Weather Background
+    const randomSunny = config.BACKGROUNDSUN__DAY[Math.floor(Math.random() * config.BACKGROUNDSUN__DAY.length)];
+    // Snowy Weather Background
+    const snow = config.BACKGROUNDSNOW__DAY-Math.floor(Math.random()* config.BACKGROUNDSNOW__DAY.length);
+    // Cloudy Weather Background
     const randomClouds = config.BACKGROUNDCLOUDY__DAY[Math.floor(Math.random() * config.BACKGROUNDCLOUDY__DAY.length)]
+    // Partial Cloudy Weather
+    const randomPartialClouds = config.BACKGROUNDPARTCLOUDY__DAY[Math.floor(Math.random() * config.BACKGROUNDPARTCLOUDY__DAY.length)]
+    // Raining Weather Background
+    const randomRain = config.BACKGROUNDRAIN__DAY[Math.floor(Math.random() * config.BACKGROUNDRAIN__DAY.length)]
+    // ThunderStorm Weather BackGround
+    const randomLightning = config.BACKGROUNDLIGHTN__DAY[Math.floor(Math.random() * config.BACKGROUNDLIGHTN__DAY.length)]
+    // Foggy Weather Background
+    const randomFog = config.BACKGROUNDFOG__DAY[Math.floor(Math.random() * config.BACKGROUNDFOG__DAY)]
+    ////////
+
+    // Show Snow
+    if (this._data.weathType === "Snow"){
+      this._generateBackground(snow)
+    }
+    // Show Clouds
     if (this._data.weathType === "Clouds"){
-      console.log(randomClouds)
-      console.log(this._data.weathType === "Clouds");
       this._generateBackground(randomClouds);
     }
-
-    const randomRain = config.BACKGROUNDRAIN__DAY[Math.floor(Math.random() * config.BACKGROUNDRAIN__DAY.length)]
-    if (this._data.weathType === "Rain" || "Drizzle"){
-      console.log("weather")
-      console.log(this._data.weathType === "Rain");
-      this._generateBackground(randomRain)
+    // Show Partial Clouds
+    if (
+      this._data.WeathDescript === "scattered clouds" ||
+      this._data.WeathDescript === "few clouds"
+    ) {
+      this._generateBackground(randomPartialClouds);
     }
-
-    const randomSunny = config.BACKGROUNDSUN__DAY[Math.floor(Math.random() * config.BACKGROUNDSUN__DAY.length)]
+    // Show Rain
+    if (this._data.weathType === "Rain" || this._data.weathType === "Drizzle") {
+      this._generateBackground(randomRain);
+    }
+    // Show Clear
+    if (this._data.weathType === "Clear"){
+      this._generateBackground(randomSunny)
+    }
+    // Show Storm
+    if (this._data.weathType === "Thunderstorm") {
+      this._generateBackground(randomLightning);
+    }
+    // Show Fog
+    if (this._data.weathType === "Fog") {
+      this._generateBackground(randomFog);
+    }
   }
 
   _generateBackground(image){
     document.body.style.backgroundImage = `url(${image})`;
-    // document.body.style.backgroundImage = `url(${cloudy})`
-    // document.body.style.backgroundImage =
-    //   `url(${clear__skies})`;
-    // document.body.style.backgroundImage =
-    //   "url(../../src/images/clear-skies-morning.jpg)";
-    // this._bodyElement.style.backgroundImage = image
-    // console.log(typeof image)
-    // console.log(typeof cloudy)
-    console.log(image)
+    // console.log(image)
   }
-
   
   _generateMarkup() {
     return `<img class="weather__icon" src="http://openweathermap.org/img/wn/${
