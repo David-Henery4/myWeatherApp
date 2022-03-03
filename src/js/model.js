@@ -128,7 +128,7 @@ const fetchCitiesData = async function (cityCoords) {
   ///////////////////
 };
 
-//              Fetching data on user 
+//         Fetching data on user search query 
 
 export const fetchSearchCoords = async function(query){
   // console.log(query)
@@ -140,4 +140,12 @@ export const fetchSearchCoords = async function(query){
   );
   const data = await res.json();
   console.log(data)
+  fetchSearchData(data)
 };
+
+export const fetchSearchData = async function(coordData){
+  const URL = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordData[0].lat}&lon=${coordData[0].lon}&units=metric&exclude=minutely,alerts&appid=03c0ab070c431f94285f47bf8bf82c9c`;
+  const res = await fetch(URL);
+  const data = await res.json();
+  console.log(data)
+}
