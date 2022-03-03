@@ -1,11 +1,13 @@
 //                Main/Home J.S
 import * as model from "./model.js";
+// View Classes Imports
 import CurrView from "./views/currWeatherView.js";
 import TimeDateLocal from "./views/timeDateLocalView.js";
 import Hours from "./views/hoursView.js";
 import WeekView from "./views/weekView.js"; 
 import Cities from "./views/citiesView.js";
 import weekView from "./views/weekView.js";
+import Search from "./views/searchView.js";
 // import hoursView from "./views/hoursView";
 //
 console.log("Home: Working");
@@ -17,6 +19,10 @@ if (module.hot) {
 //
 // console.log(model.weathData);
 // console.log(model.overallWeathData2);
+
+const searchPage = function(){
+  
+}
 
 const currentWeather = async function () {
   navigator.geolocation.getCurrentPosition(async (c) => {
