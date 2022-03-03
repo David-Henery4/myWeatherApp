@@ -105,7 +105,7 @@ fetchCitiesCoords()
 
 // Fetching cities current data
 const fetchCitiesData = async function (cityCoords) {
-  console.log(cityCoords);
+  // console.log(cityCoords);
   /////////////////////
   const cityData = [];
   await Promise.all(
@@ -126,4 +126,18 @@ const fetchCitiesData = async function (cityCoords) {
   overallWeathData2.cities = cityData;
   console.log(overallWeathData2);
   ///////////////////
+};
+
+//              Fetching data on user 
+
+export const fetchSearchCoords = async function(query){
+  // console.log(query)
+  const queryLower = query.slice(1)
+  const readyquery = query[0].toUpperCase().concat(queryLower)
+  console.log(readyquery)
+  const res = await fetch(
+    `http://api.openweathermap.org/geo/1.0/direct?q=${readyquery}&limit=1&appid=03c0ab070c431f94285f47bf8bf82c9c`
+  );
+  const data = await res.json();
+  console.log(data)
 };

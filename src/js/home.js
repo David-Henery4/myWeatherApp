@@ -22,7 +22,7 @@ if (module.hot) {
 
 const searchPage = async function(){
 console.log(model.overallWeathData2.userSearches)
-// await 
+await model.fetchSearchCoords(model.overallWeathData2.userSearches);
 }
 
 const currentWeather = async function () {
