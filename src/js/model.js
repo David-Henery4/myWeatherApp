@@ -10,6 +10,7 @@ export const overallWeathData2 = {
   cities: {},
   usersCoords: {},
   userSearches:{},
+  userSearchInfo: {},
 };
 
 //       FETCHING WEATHER DATA (from openweathermap)

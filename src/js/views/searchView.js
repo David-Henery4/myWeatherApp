@@ -1,5 +1,8 @@
 import View from "./view.js";
 import * as model from "../model";
+//
+console.log("Search View Working")
+//
 
 class Search extends View {
   _inputForm = document.querySelector(".search__location--sect");
@@ -13,22 +16,20 @@ class Search extends View {
   _submitActions(e){
     e.preventDefault();
     // add value to state object
-    console.log(this._searchInput.value);
+    // console.log(this._searchInput.value);
     model.overallWeathData2.userSearches = this._searchInput.value;
     this._searchInput.value = "";
     this._searchInput.blur();
-    console.log(model.overallWeathData2)
+    // console.log(model.overallWeathData2)
   }
 
   _submitEvent(){
     this._inputForm.addEventListener("submit", this._submitActions.bind(this));
   }
+
+  searchHandler(handler){
+    this._inputForm.addEventListener("submit", handler)
+  }
 }
-console.log("Search View Working")
-
-
-
-
-
 
 export default new Search();

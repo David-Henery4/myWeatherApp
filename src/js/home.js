@@ -20,8 +20,9 @@ if (module.hot) {
 // console.log(model.weathData);
 // console.log(model.overallWeathData2);
 
-const searchPage = function(){
-  
+const searchPage = async function(){
+console.log(model.overallWeathData2.userSearches)
+// await 
 }
 
 const currentWeather = async function () {
@@ -58,6 +59,8 @@ const init = function(){
   Hours.addHoursHandler(currentHours)
   weekView.addWeekHandler(nextWeekForecase)
   Cities.addCityHandler(citiesForecast)
+  //
+  Search.searchHandler(searchPage)
   // TimeDateLocal.timeDateLocalHandler(currentWeather);
 }
 init()
