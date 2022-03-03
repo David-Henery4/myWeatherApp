@@ -23,6 +23,13 @@ if (module.hot) {
 const searchPage = async function(){
 console.log(model.overallWeathData2.userSearches)
 await model.fetchSearchCoords(model.overallWeathData2.userSearches);
+console.log(model.overallWeathData2.current)
+// try to find way around or use render spinner!
+setTimeout(function(){
+  CurrView.render(model.overallWeathData2.current);
+  TimeDateLocal.render(model.overallWeathData2.current);
+  CurrView._dynamicBackgrounds();
+},1000)
 }
 
 const currentWeather = async function () {

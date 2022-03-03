@@ -58,6 +58,8 @@ export const fetchForecastData = async function (lat, long) {
   // console.log(new Date(unix*1000))
 };
 
+// these will be moved to the bottom to be reused
+
 const handlingHourlyData = function (hours) {
   const next5Hours = hours.hourly.slice(1, 6);
   overallWeathData2.forecast.hours = next5Hours;
@@ -127,9 +129,11 @@ const fetchCitiesData = async function (cityCoords) {
   console.log(overallWeathData2);
   ///////////////////
 };
+///////////////////////////////////////////////////
 
-//         Fetching data on user search query 
+//        WEATHER DATA FROM SEARCH QUERY
 
+// Fetching Coords on user search query 
 export const fetchSearchCoords = async function(query){
   // console.log(query)
   const queryLower = query.slice(1)
@@ -141,11 +145,25 @@ export const fetchSearchCoords = async function(query){
   const data = await res.json();
   console.log(data)
   fetchSearchData(data)
+  fetchCurrentData(data)
 };
 
+// Fetch hourly and next week weather data from query
 export const fetchSearchData = async function(coordData){
   const URL = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordData[0].lat}&lon=${coordData[0].lon}&units=metric&exclude=minutely,alerts&appid=03c0ab070c431f94285f47bf8bf82c9c`;
   const res = await fetch(URL);
   const data = await res.json();
   console.log(data)
+  handlingHourlyData(data)
+  handlingNextWeekData(data)
 }
+
+// Fetch Current weather Data from query
+export const fetchCurrentData = async function(coordData){
+  const URL = `http://api.openweathermap.org/data/2.5/weather?lat=${coordData[0].lat}&lon=${coordData[0].lon}&units=metric&appid=03c0ab070c431f94285f47bf8bf82c9c`;
+  const res = await fetch(URL);
+  const data = await res.json();
+  console.log(data)
+  handlingCurWeather(data);
+  console.log(overallWeathData2)
+};

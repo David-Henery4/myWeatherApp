@@ -10,31 +10,33 @@ import clear__skies from "url:../../images/clear-skies.jpg"
 
 class CurrView extends View {
   _parentElement = document.querySelector(".current__day--wrap");
+  _getCurrentWeathBtn = document.querySelector(".current__weath--btn");
   // _bodyElement = document.querySelector("#body__images")
 
-  constructor(){
-    super()
+  constructor() {
+    super();
     // this._dynamicBackgrounds()
   }
 
   currentViewHandler(handler) {
-    window.addEventListener("load", handler)
-  }
-  
-  _formatSunriseSunset(time){
+    // window.addEventListener("load", handler);
+    this._getCurrentWeathBtn.addEventListener("click", handler)
+  };
+
+  _formatSunriseSunset(time) {
     const newTime = new Date(time * 1000);
     const hour = newTime.getHours().toString().padStart(2, 0);
-    const min = newTime.getMinutes().toString().padStart(2,0)
-    return `${hour}:${min}`
+    const min = newTime.getMinutes().toString().padStart(2, 0);
+    return `${hour}:${min}`;
   }
 
   // could move to view if we wanted to re-use for other sections
-  _randomBackgrounds(imageArray){
-  const image = imageArray[Math.floor(Math.random() * imageArray.length)]
-  return image
+  _randomBackgrounds(imageArray) {
+    const image = imageArray[Math.floor(Math.random() * imageArray.length)];
+    return image;
   }
-  
-  _dynamicBackgrounds(){
+
+  _dynamicBackgrounds() {
     // Snowy Weather Background
     if (this._data.weathType === "Snow") {
       const snow = this._randomBackgrounds(config.BACKGROUNDSNOW__DAY);
@@ -87,10 +89,10 @@ class CurrView extends View {
     }
   }
 
-  _generateBackground(image){
+  _generateBackground(image) {
     document.body.style.backgroundImage = `url(${image})`;
   }
-  
+
   _generateMarkup() {
     return `<img class="weather__icon" src="http://openweathermap.org/img/wn/${
       this._data.weathIcon
