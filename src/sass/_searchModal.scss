@@ -1,7 +1,8 @@
 .search__page--wrap {
-  width: 80%;
-  height: 60%;
-  background-color: rgb(224, 217, 217);
+  width: 90%;
+  height: 50%;
+  // background-color: rgb(224, 217, 217);
+  background-image: linear-gradient(to bottom right, #7BC1E8, #92C6E2, #B4CDDB, #D9E4EB);
   border-radius: 40px;
   position: absolute;
   top: 50%;
@@ -10,7 +11,9 @@
   // bottom: 50%;
   transform: translate(-50%, -50%);
   z-index: 100;
+  // Might change colours/styles later
 }
+
 .search__page--content {
   width: 100%;
   height: 100%;
@@ -21,25 +24,70 @@
   align-items: center;
 }
 
-// Might have to put in div
-.app__title {
-  font-size: 1.5rem;
+
+.app__title--wrap{
+  width: 100%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .app__title {
+    font-size: 1.6rem;
+    font-weight: 200;
+    span{
+      font-weight: 900;
+      font-style: oblique 80deg;
+      letter-spacing: 1px;
+      span{
+        font-size: 1.8rem;
+      }
+    }
+  }
 }
 
-.form__container {
+.search__container{
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  height: 75%;
+  height: 80%;
   width: 100%;
+  p{
+      font-size: 0.8rem;
+  }
   .search__location--sect {
     width: 100%;
     height: 45%;
+    label{
+      font-size: 1.1rem;
+    }
+    input{
+      color: white;
+      border: none;
+      background-color: transparent;
+      border-bottom: 2px solid white;
+      outline: none;
+      // border-radius: 20px;
+      padding: 3px;
+    }
   }
+  ::placeholder{
+    color: white;
+  }
+
   .search__current--sect {
-    width: 100%;
-    height: 45%;
+    @extend .search__location--sect;
+    button{
+      // background-color: white;
+      border: 1px solid #6DADCF;
+      border-radius: 20px;
+      color: #7A7A7A;
+      padding: 7px 12px;
+    }
+    button:hover{
+      background-color: #6DADCF;
+      color: white;
+    }
   }
 }
 

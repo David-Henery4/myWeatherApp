@@ -13,10 +13,10 @@ class TimeDateLocal extends View {
   }
 
   _searchMethod() {
-    this._dateTimeElement.addEventListener("click", function(e){
-      if (!e.target.classlist === "search__icon")return
-      console.log(e.target)
-    })
+  this._dateTimeElement.addEventListener("click", function(e){
+    if (!e.target.closest(".search__icon")) return
+    console.log(e.target)
+  })
   };
 
   _generateMarkup() {
