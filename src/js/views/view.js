@@ -2,6 +2,15 @@
 
 export default class View {
   _data;
+  _generalOverlayEle = document.querySelector(".hours__overlay");
+
+  overlay(){
+    // if(this._searchContainer) return
+      this._generalOverlayEle.classList.toggle("hours__overlay--active");
+  }
+  removeOverlay(){
+  
+  }
 
   render(data) {
     this._data = data;

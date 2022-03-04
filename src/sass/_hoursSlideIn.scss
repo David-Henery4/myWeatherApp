@@ -22,9 +22,10 @@
     left: 0;
     height: 100vh;
     width: 100vw;
-    background-color: rgba(0, 0, 0, 0.644);
+    background-color: rgba(0, 0, 0, 0.7);
     z-index: 1;
     transition: .5s ease-in-out;
+    backdrop-filter: blur(10px);
 }
 
 .hours__title--box{

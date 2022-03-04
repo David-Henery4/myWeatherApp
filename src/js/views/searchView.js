@@ -26,6 +26,7 @@ class Search extends View {
     // console.log(model.overallWeathData2)
     // sort remove on click and submit
     this._searchContainer.classList.add("page__remove");
+    this.overlay();
   }
 
   _submitEvent() {
@@ -34,6 +35,7 @@ class Search extends View {
 
   _clickActions(){
     this._searchContainer.classList.add("page__remove");
+    this.overlay()
   }
 
   _clickEvent(){

@@ -8,6 +8,7 @@ import WeekView from "./views/weekView.js";
 import Cities from "./views/citiesView.js";
 import weekView from "./views/weekView.js";
 import Search from "./views/searchView.js";
+import hoursView from "./views/hoursView.js";
 // import hoursView from "./views/hoursView";
 //
 console.log("Home: Working");
@@ -72,6 +73,9 @@ const init = function(){
 }
 init()
 
+const searchBoxElement = document.querySelector(".search__page--wrap");
+console.log(searchBoxElement === true)
 
-
+console.log(hoursView._hoursCompleteSection.style.transform === "translateX(-100%)")
+    
 
