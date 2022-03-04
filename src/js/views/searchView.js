@@ -13,6 +13,7 @@ class Search extends View {
   constructor() {
     super();
     this._submitEvent();
+    this._clickEvent();
   }
 
   _submitActions(e) {
@@ -24,12 +25,21 @@ class Search extends View {
     this._searchInput.blur();
     // console.log(model.overallWeathData2)
     // sort remove on click and submit
-    // this._searchContainer.classList.add("page__remove");
+    this._searchContainer.classList.add("page__remove");
   }
 
   _submitEvent() {
     this._inputForm.addEventListener("submit", this._submitActions.bind(this));
   }
+
+  _clickActions(){
+    this._searchContainer.classList.add("page__remove");
+  }
+
+  _clickEvent(){
+    this._getCurrentWeathBtn.addEventListener("click", this._clickActions.bind(this))
+  }
+
 
   searchHandler(handler) {
     this._inputForm.addEventListener("submit", handler);
