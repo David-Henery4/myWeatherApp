@@ -73,9 +73,5 @@ const init = function(){
 }
 init()
 
-const searchBoxElement = document.querySelector(".search__page--wrap");
-console.log(searchBoxElement === true)
-
-console.log(hoursView._hoursCompleteSection.style.transform === "translateX(-100%)")
     
 

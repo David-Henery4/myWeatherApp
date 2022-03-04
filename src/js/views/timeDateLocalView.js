@@ -1,23 +1,23 @@
 import View from "./view.js";
-import searchIcon from "url:../../images/search-icon.svg";
+// import searchIcon from "url:../../images/search-icon.svg";
 
 class TimeDateLocal extends View {
   _parentElement = document.querySelector(".location__wrap");
   _dateTimeElement = document.querySelector(".date--time");
-  _searchBtn = document.querySelector(".search__icon");
+  // _searchBtn = document.querySelector(".search__icon");
 
   constructor() {
     super();
     this.getCurrentDateTime();
-    this._searchMethod()
+    // this._searchMethod();
   }
 
-  _searchMethod() {
-  this._dateTimeElement.addEventListener("click", function(e){
-    if (!e.target.closest(".search__icon")) return
-    console.log(e.target)
-  })
-  };
+  // _searchMethod() {
+  //   this._dateTimeElement.addEventListener("click", function (e) {
+  //     if (!e.target.closest(".search__icon")) return;
+  //     console.log(e.target);
+  //   });
+  // }
 
   _generateMarkup() {
     return `
@@ -45,8 +45,7 @@ class TimeDateLocal extends View {
     this._dateTimeElement.insertAdjacentHTML(
       "afterbegin",
       `<p>${date}</p>
-      <h4>${time}</h4>
-      <img class="search__icon" src="${searchIcon}" alt="">`
+      <h4>${time}</h4>`
     );
   }
 }

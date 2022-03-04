@@ -9,6 +9,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  transition: 1s ease-in-out;
   // Might change colours/styles later
   // keep till end just in case!
   // right: 50%;
@@ -18,11 +19,11 @@
 }
 
 .page__remove{
-  display: none;
+  // display: none;
   // or add
-  // transition
-  // opacity
-  // visability
+  transition: 1s ease-in-out;
+  opacity: 0;
+  visibility: hidden;
 }
 
 

@@ -14,8 +14,6 @@ class Hours extends View {
   }
 
   _toggleSlide() {
-    // if (this._hoursCompleteSection.style.transform === "translateX(0%)"){
-    // }
     this._hoursCompleteSection.classList.toggle("slide-hours");
     this.overlay();
     // this._hoursOverlay.classList.toggle("hours__overlay--active");
@@ -27,10 +25,8 @@ class Hours extends View {
   removeSlide() {
     this._exitHoursBtn.addEventListener("click", this._toggleSlide.bind(this));
     this._generalOverlayEle.addEventListener("click", this._toggleSlide.bind(this));
-
     // (Only needed event delegation when the element are dynamicly created because we cant add event to them)
   }
-
 
   addHoursHandler(handler) {
     this._hoursBtn.addEventListener("click", handler);
