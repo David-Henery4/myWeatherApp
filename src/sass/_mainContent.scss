@@ -1,6 +1,6 @@
 
 .current__day--wrap{
-    height: 65%;
+    height: 67%;
     width: 100%;
     flex-direction: column;
     display: flex;
@@ -9,28 +9,25 @@
 }
 
 .weather__icon{
-    width: 8rem;
-    height: 8rem;
+    width: 6rem;
+    height: 6rem;
 }
 
 .current__weath--titles{
     display: flex;
+    height: 8.7rem;
     width: 100%;
-    justify-content: space-evenly;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
     h1{
-        font-size: 3rem;
+        font-size: 2.2rem;
+        text-align: center;
     }
-    // .title__seperator{
-    //     width: 1px;
-    //     height: 60px;
-    //     background-color: white;
-    //     // position: relative;
-    //     // left: 40px;
-    // }
 }
 
 .current__weath--details{
-    height: 50%;
+    height: 45%;
     width: 100%;
     background-color: rgba(128, 128, 128, 0.507);
     backdrop-filter: blur(20px);

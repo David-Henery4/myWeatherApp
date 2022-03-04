@@ -104,7 +104,7 @@ class CurrView extends View {
       <div class="current__weath--titles">
         <h1 class="curr__temp">${Math.round(this._data.temp)}°C</h1>
         <div class="title__seperator"></div>
-        <h1 class="curr__weath">${this._data.weathType}</h1>
+        <h1 class="curr__weath">${this._data.WeathDescript}</h1>
       </div>
 
       <div class="current__weath--details">
