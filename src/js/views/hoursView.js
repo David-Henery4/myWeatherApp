@@ -1,9 +1,9 @@
 import View from "./view.js";
 import CustomExitSvg from "url:../../images/CustomExitSvg.svg";
+
 class Hours extends View {
   _parentElement = document.querySelector(".hours__container");
   _hoursCompleteSection = document.querySelector(".hours__slide--wrap");
-  // _hoursOverlay = document.querySelector(".hours__overlay")
   _hoursBtn = document.querySelector(".today__btn");
   _exitHoursBtn = document.querySelector(".exit__icon");
   // 

@@ -29,20 +29,6 @@ class WeekView extends View {
     this._weekBtn.addEventListener("click", handler);
   }
 
-  gettingDate(uni){
-  const date = new Date(uni*1000)
-  console.log(date)
-    const local = navigator.language;
-    const options = {
-      weekday: "long",
-      day: "numeric",
-      month: "long",
-    };
-    const dateSplit = (new Intl.DateTimeFormat(local, options).format(date)).split(" ")
-    console.log(dateSplit)
-    return dateSplit
-  }
-
   _generateMarkup() {
     return this._data
       .map((day) => {
@@ -58,7 +44,7 @@ class WeekView extends View {
               this.gettingDate(day.dt)[1]
             )} ${this.gettingDate(day.dt)[2]}</p>
             <p class="week__temp">${day.temp.max}°C</p>
-            <p class="week__weather">${day.weather[0].description}</p>
+            <p class="week__weather">${this.uppserCaseDescription(day.weather[0].description)}</p>
           </div>`;
       })
       .join("");

@@ -33,7 +33,7 @@ class Cities extends View {
             <h4 class="cities__name">${city.name}</h4>
             <div class="cities__content">
               <p class="cities__temp">${Math.round(city.main.temp)}°C</p>
-              <p class="cities__weath">${city.weather[0].description}</p>
+              <p class="cities__weath">${this.uppserCaseDescription(city.weather[0].description)}</p>
             </div>
           </div>`
     }).join("")

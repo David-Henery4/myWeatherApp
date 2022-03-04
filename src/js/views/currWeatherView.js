@@ -10,18 +10,17 @@ import clear__skies from "url:../../images/clear-skies.jpg"
 
 class CurrView extends View {
   _parentElement = document.querySelector(".current__day--wrap");
-  _getCurrentWeathBtn = document.querySelector(".current__weath--btn");
-  // _bodyElement = document.querySelector("#body__images")
-
+  //
   constructor() {
     super();
-    // this._dynamicBackgrounds()
   }
 
-  currentViewHandler(handler) {
-    // window.addEventListener("load", handler);
-    this._getCurrentWeathBtn.addEventListener("click", handler)
-  };
+
+  // was using this
+  // currentViewHandler(handler) {
+  //   // window.addEventListener("load", handler);
+  //   this._getCurrentWeathBtn.addEventListener("click", handler)
+  // };
 
   _formatSunriseSunset(time) {
     const newTime = new Date(time * 1000);
@@ -97,6 +96,7 @@ class CurrView extends View {
     document.body.style.backgroundImage = `url(${image})`;
   }
 
+
   _generateMarkup() {
     return `<img class="weather__icon" src="http://openweathermap.org/img/wn/${
       this._data.weathIcon
@@ -104,7 +104,8 @@ class CurrView extends View {
       <div class="current__weath--titles">
         <h1 class="curr__temp">${Math.round(this._data.temp)}°C</h1>
         <div class="title__seperator"></div>
-        <h1 class="curr__weath">${this._data.WeathDescript}</h1>
+        <h1 class="curr__weath">${
+         this.uppserCaseDescription(this._data.WeathDescript)}</h1>
       </div>
 
       <div class="current__weath--details">

@@ -14,18 +14,20 @@ class Search extends View {
   constructor() {
     super();
     this._submitEvent();
-    this._clickEvent();
-    this._searchIconEvent()
+    this._searchIconEvent();
   }
 
-  _searchIconAction(){
-  this._searchContainer.classList.remove("page__remove");
-  this.overlay()
-  console.log(this._searchBtn)
+  _searchIconAction() {
+    this._searchContainer.classList.remove("page__remove");
+    this.overlay();
+    console.log(this._searchBtn);
   }
 
   _searchIconEvent() {
-  this._searchBtn.addEventListener("click", this._searchIconAction.bind(this))
+    this._searchBtn.addEventListener(
+      "click",
+      this._searchIconAction.bind(this)
+    );
   }
 
   // Search Locations Query Actions
@@ -47,12 +49,17 @@ class Search extends View {
     this._searchContainer.classList.add("page__remove");
     this.overlay();
   }
-  _clickEvent() {
+  currentViewHandlerAndClickEvent(handler) {
     this._getCurrentWeathBtn.addEventListener(
       "click",
       this._clickActions.bind(this)
     );
+    this._getCurrentWeathBtn.addEventListener("click", handler);
   }
+
+  // currentViewHandler(handler) {
+  //   this._getCurrentWeathBtn.addEventListener("click", handler);
+  // }
 
   searchHandler(handler) {
     this._inputForm.addEventListener("submit", handler);

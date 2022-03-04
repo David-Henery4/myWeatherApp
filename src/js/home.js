@@ -36,7 +36,6 @@ setTimeout(function(){
 const currentWeather = async function () {
   navigator.geolocation.getCurrentPosition(async (c) => {
     const { longitude, latitude } = c.coords;
-    // console.log(longitude,latitude)
     model.overallWeathData2.usersCoords.lat = latitude;
     model.overallWeathData2.usersCoords.long = longitude;
     await model.fetchWeatherCurrent(latitude, longitude);
@@ -63,7 +62,8 @@ const citiesForecast = async function(){
 }
 
 const init = function(){
-  CurrView.currentViewHandler(currentWeather);
+  // was using currView
+  Search.currentViewHandlerAndClickEvent(currentWeather);
   Hours.addHoursHandler(currentHours)
   weekView.addWeekHandler(nextWeekForecase)
   Cities.addCityHandler(citiesForecast)

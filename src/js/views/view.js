@@ -4,15 +4,13 @@ export default class View {
   _data;
   _generalOverlayEle = document.querySelector(".hours__overlay");
 
-  overlay(){
-      this._generalOverlayEle.classList.toggle("hours__overlay--active");
+  overlay() {
+    this._generalOverlayEle.classList.toggle("hours__overlay--active");
   }
 
   render(data) {
     this._data = data;
     const markup = this._generateMarkup();
-    // console.log(this._data)
-    // console.log(markup)
     this.clear();
     this._parentElement.insertAdjacentHTML("afterbegin", markup);
   }
@@ -28,6 +26,33 @@ export default class View {
         ? "rd"
         : "th")
     );
+  }
+
+  gettingDate(uni) {
+    const date = new Date(uni * 1000);
+    // console.log(date);
+    const local = navigator.language;
+    const options = {
+      weekday: "long",
+      day: "numeric",
+      month: "long",
+    };
+    const dateSplit = new Intl.DateTimeFormat(local, options)
+      .format(date)
+      .split(" ");
+    // console.log(dateSplit);
+    return dateSplit;
+  }
+
+  uppserCaseDescription(descrip) {
+    const str = descrip.split(" ");
+    const finalDescrip = str
+      .map((word) => {
+        const upper = word[0].toUpperCase();
+        return upper.concat(word.slice(1));
+      })
+      .join(" ");
+    return finalDescrip;
   }
 
   clear() {
