@@ -1,19 +1,21 @@
 import View from "./view.js";
 import * as model from "../model";
 //
-console.log("Search View Working")
+console.log("Search View Working");
 //
 
 class Search extends View {
+  _searchContainer = document.querySelector(".search__page--wrap");
   _inputForm = document.querySelector(".search__location--sect");
   _searchInput = document.querySelector(".search__location--input");
-  
-  constructor(){
-      super()
-      this._submitEvent()
+  _getCurrentWeathBtn = document.querySelector(".current__weath--btn");
+
+  constructor() {
+    super();
+    this._submitEvent();
   }
 
-  _submitActions(e){
+  _submitActions(e) {
     e.preventDefault();
     // add value to state object
     // console.log(this._searchInput.value);
@@ -21,14 +23,16 @@ class Search extends View {
     this._searchInput.value = "";
     this._searchInput.blur();
     // console.log(model.overallWeathData2)
+    // sort remove on click and submit
+    // this._searchContainer.classList.add("page__remove");
   }
 
-  _submitEvent(){
+  _submitEvent() {
     this._inputForm.addEventListener("submit", this._submitActions.bind(this));
   }
 
-  searchHandler(handler){
-    this._inputForm.addEventListener("submit", handler)
+  searchHandler(handler) {
+    this._inputForm.addEventListener("submit", handler);
   }
 }
 

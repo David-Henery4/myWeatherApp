@@ -42,7 +42,7 @@ const currentWeather = async function () {
     await model.fetchForecastData(latitude, longitude);
     CurrView.render(model.overallWeathData2.current);
     TimeDateLocal.render(model.overallWeathData2.current);
-    CurrView._dynamicBackgrounds()
+    CurrView._dynamicBackgrounds();
   });
 };
 
