@@ -17,7 +17,6 @@ console.log("Home: Working");
 if (module.hot) {
   module.hot.accept();
 }
-//
 // console.log(model.weathData);
 // console.log(model.overallWeathData2);
 
@@ -69,11 +68,8 @@ const init = function(){
   Hours.addHoursHandler(currentHours)
   weekView.addWeekHandler(nextWeekForecase)
   Cities.addCityHandler(citiesForecast)
-  //
   Search.searchHandler(searchPage)
-  // TimeDateLocal.timeDateLocalHandler(currentWeather);
 }
 init()
 
-    
 
