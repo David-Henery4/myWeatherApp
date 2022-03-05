@@ -17,6 +17,24 @@ import foggy_Road from "url:../images/foggy-road.jpg";
 import foggy_Path from "url:../images/foggy-path.jpg";
 import foggy_Forrest from "url:../images/foggy-forrest.jpg";
 import foggy_Lane from "url:../images/foggy-lane.jpg";
+// misty image imports
+import misty_forrest from "url:../images/Misty-forrest.jpg";
+import misty_street from "url:../images/misty-street.jpg";
+import misty_trees from "url:../images/misty-trees.jpg"
+
+// dust storm image imports
+import dust_storm from "url:../images/dust-storm.jpg";
+import dust_storm_two from "url:../images/dust-storm-two.jpg";
+import dust_storm_three from "url:../images/dust-storm-three.jpg";
+
+// smokey
+import smokey_forrest from "url:../images/smokey-forrest.jpg";
+import smokey_trees from "url:../images/smokey-trees.jpg";
+
+// ash & tornado
+import ash from "url:../images/ash.jpg"
+import tornado from "url:../images/tornado.jpg"
+
 
 // sunny images imports
 import clear_Skies_Morning from "url:../images/clear-skies-morning.jpg";
@@ -75,6 +93,9 @@ export const BACKGROUNDFOG__DAY = [
   foggy_Path,
   foggy_Forrest,
   foggy_Lane,
+  misty_forrest,
+  misty_street,
+  misty_trees,
 ];
 
 // day sunny sources
@@ -124,3 +145,15 @@ export const BACKGROUNDSNOW__DAY = [
   snowy_Brella,
   snowy,
 ];
+
+// day smokey sources
+export const SMOKEY__DAY = [smokey_forrest,smokey_trees];
+
+// day tornado sources
+export const TORNADO__DAY = [tornado];
+
+// day ash sources
+export const ASH__DAY = [ash];
+
+// day dust & sand & squall storm sources
+export const DUSTSTORM__DAY = [dust_storm,dust_storm_two,dust_storm_three];

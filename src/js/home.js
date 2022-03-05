@@ -25,7 +25,7 @@ const searchPage = async function(){
 console.log(model.overallWeathData2.userSearches)
 await model.fetchSearchCoords(model.overallWeathData2.userSearches);
 console.log(model.overallWeathData2.current)
-// try to find way around or use render spinner!
+// try to find way around or use render spinner! (or both)
 setTimeout(function(){
   CurrView.render(model.overallWeathData2.current);
   TimeDateLocal.render(model.overallWeathData2.current);
@@ -55,9 +55,11 @@ const nextWeekForecase = function(){
 }
 
 const citiesForecast = async function(){
-  // try to call here
-  // await model.fetchCitiesCoords()
-  Cities.render(model.overallWeathData2.cities)
+  // done like this because of the dsign pattern
+  const coordsData = await model.fetchCitiesCoords()
+  const data = await model.fetchCitiesData(coordsData)
+  console.log(data)
+  Cities.render(data.cities)
   console.log(model.overallWeathData2)
 }
 

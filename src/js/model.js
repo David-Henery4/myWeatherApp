@@ -100,13 +100,14 @@ export const fetchCitiesCoords = async function () {
     })
   );
   const cityCoordsRay = cityLocations.flat();
-  fetchCitiesData(cityCoordsRay);
+  return cityCoordsRay
+  // fetchCitiesData(cityCoordsRay);
 };
-fetchCitiesCoords()
+// fetchCitiesCoords()
 
 
 // Fetching cities current data
-const fetchCitiesData = async function (cityCoords) {
+export const fetchCitiesData = async function (cityCoords) {
   // console.log(cityCoords);
   /////////////////////
   const cityData = [];
@@ -126,7 +127,8 @@ const fetchCitiesData = async function (cityCoords) {
   // sort and distribute
   cityData.sort((a, b) => a.name.localeCompare(b.name));
   overallWeathData2.cities = cityData;
-  console.log(overallWeathData2);
+  console.log(`This is flowing`, overallWeathData2);
+  return overallWeathData2
   ///////////////////
 };
 ///////////////////////////////////////////////////

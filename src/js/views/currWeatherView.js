@@ -85,9 +85,33 @@ class CurrView extends View {
     }
 
     // Foggy Weather Background
-    if (this._data.weathType === "Fog") {
+    if (this._data.weathType === "Fog" || this._data.weathType === "Haze" || this._data.weathType === "Mist") {
       const randomFog = this._randomBackgrounds(config.BACKGROUNDFOG__DAY);
       this._generateBackground(randomFog);
+    }
+
+    // Smokey Weather Background
+    if (this._data.weathType === "Smoke"){
+      const randomSmoke = this._randomBackgrounds(config.SMOKEY__DAY)
+      this._generateBackground(randomSmoke)
+    }
+
+    // Tornado weather background
+    if (this._data.weathType === "Tornado"){
+      const tornado = this._randomBackgrounds(config.TORNADO__DAY)
+      this._generateBackground(tornado)
+    }
+
+    // Ash weather background
+    if (this._data.weathType=== "Ash"){
+      const ash = this._randomBackgrounds(config.ASH__DAY);
+      this._generateBackground(ash)
+    }
+
+    // Squall, dust & sandstorms weather background
+    if (this._data.weathType === "Squall" || this._data.weathType === "Dust" ||this._data.weathType === "Sand"){
+      const squallDustSand = this._randomBackgrounds(config.DUSTSTORM__DAY)
+      this._generateBackground(squallDustSand)
     }
   }
 
