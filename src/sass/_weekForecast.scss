@@ -10,6 +10,7 @@
     position: absolute;
     top: 0;
     left: 0;
+    z-index: 7;
 }
 
 .week__forecast--active{
@@ -83,6 +84,6 @@ transition: 0.4s ease-in-out;
     position: absolute;
     top: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.438);
+    background-color: rgba(0, 0, 0, 0.6);
     z-index: -1;
 }
