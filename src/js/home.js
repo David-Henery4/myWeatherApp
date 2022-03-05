@@ -22,15 +22,15 @@ if (module.hot) {
 // console.log(model.overallWeathData2);
 
 const searchPage = async function(){
-console.log(model.overallWeathData2.userSearches)
-await model.fetchSearchCoords(model.overallWeathData2.userSearches);
-console.log(model.overallWeathData2.current)
-// try to find way around or use render spinner! (or both)
-setTimeout(function(){
+  const query = Search.getQuery();
+  console.log(query);
+  const data = await model.fetchSearchCoords(query);
+  await model.fetchSearchData(data);
+  await model.fetchCurrentData(data);
+  console.log(model.overallWeathData2.current);
   CurrView.render(model.overallWeathData2.current);
   TimeDateLocal.render(model.overallWeathData2.current);
   CurrView._dynamicBackgrounds();
-},1000)
 }
 
 const currentWeather = async function () {

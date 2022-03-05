@@ -13,6 +13,7 @@ class CurrView extends View {
   //
   constructor() {
     super();
+    // this._dynamicBackgrounds()
   }
 
 

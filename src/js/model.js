@@ -27,8 +27,9 @@ export const fetchWeatherCurrent = async function (lat, long) {
 };
 
 // Handling current weather data
-function handlingCurWeather(data) {
+export const handlingCurWeather = function (data) {
   // messy, must be better way! (Maybe destructuring or loop)
+  console.log(data)
   overallWeathData2.current.WeathDescript = data.weather[0].description;
   overallWeathData2.current.weathType = data.weather[0].main;
   overallWeathData2.current.weathIcon = data.weather[0].icon;
@@ -41,7 +42,6 @@ function handlingCurWeather(data) {
   overallWeathData2.current.maxTemp = data.main.temp_max;
   overallWeathData2.current.feelsLike = data.main.feels_like;
   overallWeathData2.current.temp = data.main.temp;
-  console.log(overallWeathData2);
 }
 
 //            FETCHING CURRENT DAY HOURS FORCAST
@@ -101,10 +101,7 @@ export const fetchCitiesCoords = async function () {
   );
   const cityCoordsRay = cityLocations.flat();
   return cityCoordsRay
-  // fetchCitiesData(cityCoordsRay);
 };
-// fetchCitiesCoords()
-
 
 // Fetching cities current data
 export const fetchCitiesData = async function (cityCoords) {
@@ -141,13 +138,15 @@ export const fetchSearchCoords = async function(query){
   const queryLower = query.slice(1)
   const readyquery = query[0].toUpperCase().concat(queryLower)
   console.log(readyquery)
+  overallWeathData2.userSearches = readyquery
   const res = await fetch(
     `http://api.openweathermap.org/geo/1.0/direct?q=${readyquery}&limit=1&appid=03c0ab070c431f94285f47bf8bf82c9c`
   );
   const data = await res.json();
   console.log(data)
-  fetchSearchData(data)
-  fetchCurrentData(data)
+  return data
+  // fetchSearchData(data)
+  // fetchCurrentData(data)
 };
 
 // Fetch hourly and next week weather data from query
@@ -166,6 +165,6 @@ export const fetchCurrentData = async function(coordData){
   const res = await fetch(URL);
   const data = await res.json();
   console.log(data)
-  handlingCurWeather(data);
   console.log(overallWeathData2)
+  handlingCurWeather(data)
 };

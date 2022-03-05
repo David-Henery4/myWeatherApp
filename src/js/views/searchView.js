@@ -30,18 +30,23 @@ class Search extends View {
     );
   }
 
+  getQuery(){
+    const query = this._searchInput.value;
+    this._searchInput.value = "";
+    this._searchInput.blur();
+    return query
+  }
+
   // Search Locations Query Actions
   _submitActions(e) {
     e.preventDefault();
-    // add value to state object
-    model.overallWeathData2.userSearches = this._searchInput.value;
-    this._searchInput.value = "";
-    this._searchInput.blur();
     this._searchContainer.classList.add("page__remove");
     this.overlay();
   }
   _submitEvent() {
-    this._inputForm.addEventListener("submit", this._submitActions.bind(this));
+    this._inputForm.addEventListener("submit",
+      this._submitActions.bind(this)
+    );
   }
 
   // Current Location Button Actions

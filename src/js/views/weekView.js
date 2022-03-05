@@ -43,7 +43,7 @@ class WeekView extends View {
             <p class="week__date">${this.formatOrdinalDate(
               this.gettingDate(day.dt)[1]
             )} ${this.gettingDate(day.dt)[2]}</p>
-            <p class="week__temp">${day.temp.max}°C</p>
+            <p class="week__temp">${Math.round(day.temp.max)}°C</p>
             <p class="week__weather">${this.uppserCaseDescription(day.weather[0].description)}</p>
           </div>`;
       })
