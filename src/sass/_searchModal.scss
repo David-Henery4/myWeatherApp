@@ -113,3 +113,11 @@
   flex-direction: column;
   text-align: center;
 }
+
+//            MEDIA QUERIES
+
+@media (min-width: 600px){
+    .search__page--content{
+        max-width: 538px;
+    }
+}

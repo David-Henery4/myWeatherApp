@@ -1,4 +1,3 @@
-
 .current__day--wrap{
     height: 67%;
     width: 100%;
@@ -64,3 +63,18 @@
         grid-area: rain;
     }
 }
+
+//                 MEDIA QUERIES
+
+@media (min-width: 600px){
+    .current__day--wrap{
+        // height: ;
+        max-width: 538px;
+        margin: 0 auto;
+    }
+    .current__weath--titles{
+        justify-content: center;
+    }
+}
+
+

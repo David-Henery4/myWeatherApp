@@ -37,26 +37,36 @@
     <!-- SEARCH LOCATION FORM -->
     <div class="search__page--wrap">
       <div class="search__page--content">
-
         <div class="app__title--wrap">
-          <h4 class="app__title">my<span><span>W</span>eatherApp</span></h4>
+          <h4 class="app__title">
+            my<span><span>W</span>eatherApp</span>
+          </h4>
         </div>
 
         <div class="search__container">
-          
           <form class="search__location--sect search__sect--layout" action="">
-            <label class="search__location--title" for="search-location">Seach Location</label>
-            <input placeholder="Enter Location Name..." class="search__location--input" type="text" name="search-location" id="search-location">
+            <label class="search__location--title" for="search-location"
+              >Seach Location</label
+            >
+            <input
+              placeholder="Enter Location Name..."
+              class="search__location--input"
+              type="text"
+              name="search-location"
+              id="search-location"
+              autocomplete="off"
+            />
           </form>
-            
+
           <p>or</p>
 
           <div class="search__current--sect search__sect--layout">
             <label for="current-weather-btn">Check Current Location</label>
-            <button class="current__weath--btn" id="current-weather-btn">Get Current Weather</button>
+            <button class="current__weath--btn" id="current-weather-btn">
+              Get Current Weather
+            </button>
           </div>
         </div>
-
       </div>
     </div>
 
@@ -73,7 +83,6 @@
 
       <!-- Box Container -->
       <div class="hours__container">
-
         <!-- Hour Box One -->
         <div class="hour__details--box">
           <h4 class="hour">10pm</h4>
@@ -81,19 +90,20 @@
           <p class="hour__temp">temp: 10 C</p>
           <p class="hour__feelslike">feels: 6 C</p>
         </div>
-        
       </div>
     </div>
 
     <!-- MAIN CURRENT PAGE -->
 
     <!-- Header/Date & Time -->
-
-    <img class="search__icon" src="/src/images/search-icon.svg" alt="" />
-    <header class="date--time">
-      <p>12th Feb</p>
-      <h4>08:00</h4>
+    <header>
+      <div class="date--time">
+        <p>12th Feb</p>
+        <h4>08:00</h4>
+      </div>
+      <img class="search__icon" src="/src/images/search-icon.svg" alt="" />
     </header>
+    
 
     <!-- Current Day Main Weather Details -->
     <section class="current__day--wrap">
@@ -174,7 +184,6 @@
       <div class="weeks__overlay"></div>
 
       <div class="weeks__container">
-
         <div class="week__box">
           <p class="week__day">Monday</p>
           <div class="week__icon--wrap">
@@ -188,7 +197,6 @@
           <p class="week__temp">13°C</p>
           <p class="week__weather">Broken Clouds</p>
         </div>
-
       </div>
 
       <img
@@ -204,7 +212,6 @@
       <div class="cities__overlay"></div>
 
       <div class="cities__container">
-
         <div class="cities__box">
           <h4 class="cities__name">London</h4>
           <div class="cities__content">
@@ -212,11 +219,9 @@
             <p class="cities__weath">Raining</p>
           </div>
         </div>
-        
       </div>
 
       <img class="left__icon" src="/src/images/left--arrow--icon.svg" alt="" />
     </section>
-    
   </body>
 </html>
