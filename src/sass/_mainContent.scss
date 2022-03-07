@@ -73,7 +73,10 @@
         margin: 0 auto;
     }
     .current__weath--titles{
-        justify-content: center;
+        // justify-content: center;
+        h1{
+            font-size: 3.2rem;
+        }
     }
 }
 
