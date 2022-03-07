@@ -9,6 +9,7 @@ import Cities from "./views/citiesView.js";
 import weekView from "./views/weekView.js";
 import Search from "./views/searchView.js";
 import hoursView from "./views/hoursView.js";
+import View from "./views/view.js";
 // import hoursView from "./views/hoursView";
 //
 console.log("Home: Working");
@@ -22,6 +23,7 @@ if (module.hot) {
 
 const searchPage = async function(){
   try {
+    // Search._errorCheck = false;
     const query = Search.getQuery();
     console.log(query);
     const data = await model.fetchSearchCoords(query);
@@ -32,6 +34,8 @@ const searchPage = async function(){
     TimeDateLocal.render(model.overallWeathData2.current);
     CurrView._dynamicBackgrounds();
   } catch(err){
+    // Search._errorCheck = true;
+    Search._searchIconAction();
     console.log(`SearchPage error happening: ${err}`)
     Search.renderErrorMsg()
   }

@@ -11,6 +11,7 @@ class Search extends View {
   _getCurrentWeathBtn = document.querySelector(".current__weath--btn");
   _searchBtn = document.querySelector(".search__icon");
   _errorMessage = `There has been a problem with your search query. Please try another.`;
+  // _errorCheck = document.querySelector(".error__msg--active");
 
   constructor() {
     super();
@@ -31,29 +32,31 @@ class Search extends View {
     );
   }
 
-  getQuery(){
+  getQuery() {
     const query = this._searchInput.value;
     this._searchInput.value = "";
     this._searchInput.blur();
-    return query
+    return query;
   }
 
   // Search Locations Query Actions
   _submitActions(e) {
     e.preventDefault();
-    this._searchContainer.classList.add("page__remove");
-    this.overlay();
+    // if (this._errorCheck === false){
+    // }
+      this._searchContainer.classList.add("page__remove");
+      this.overlay();
   }
   _submitEvent() {
-    this._inputForm.addEventListener("submit",
-      this._submitActions.bind(this)
-    );
+    this._inputForm.addEventListener("submit", this._submitActions.bind(this));
   }
 
   // Current Location Button Actions
   _clickActions() {
-    this._searchContainer.classList.add("page__remove");
-    this.overlay();
+    // if (this._errorCheck === false){
+    // }
+      this._searchContainer.classList.add("page__remove");
+      this.overlay();
   }
   currentViewHandlerAndClickEvent(handler) {
     this._getCurrentWeathBtn.addEventListener(

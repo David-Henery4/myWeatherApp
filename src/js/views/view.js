@@ -2,9 +2,16 @@
 
 export default class View {
   _data;
+  // _errorCheck;
   _generalOverlayEle = document.querySelector(".hours__overlay");
   _errMsgContainer = document.querySelector(".error__msg--wrap");
   _errMsgtext = document.querySelector(".error__msg--text");
+  _errExitIcon = document.querySelector(".exit__icon--errmsg");
+
+  constructor(){
+    // super();
+    this.exitErrorMsg()
+  }
 
   overlay() {
     this._generalOverlayEle.classList.toggle("hours__overlay--active");
@@ -61,10 +68,17 @@ export default class View {
     this._parentElement.innerHTML = "";
   }
 
+  // ERROR METHODS
+  _removeExitIcon(){
+    this._errMsgContainer.classList.remove("error__msg--active");
+  }
   renderErrorMsg(message = this._errorMessage) {
     const errorMarkup = `<p>${message}</p>`;
     this._errMsgtext.innerHTML = "";
     this._errMsgtext.insertAdjacentHTML("afterbegin", errorMarkup);
     this._errMsgContainer.classList.add("error__msg--active");
+  }
+  exitErrorMsg(){
+    this._errExitIcon.addEventListener("click", this._removeExitIcon.bind(this));
   }
 }
