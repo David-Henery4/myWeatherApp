@@ -10,12 +10,12 @@ import clear__skies from "url:../../images/clear-skies.jpg"
 
 class CurrView extends View {
   _parentElement = document.querySelector(".current__day--wrap");
+  _errorMessage = `Theres been an error finding your current location weather. Please try again later.`
   //
   constructor() {
     super();
     // this._dynamicBackgrounds()
   }
-
 
   // was using this
   // currentViewHandler(handler) {
@@ -38,8 +38,8 @@ class CurrView extends View {
 
   _dynamicBackgrounds() {
     console.log("dynamicBackgrounds background active");
-    console.log(this._data.weathType)
-    console.log(this._data.WeathDescript)
+    console.log(this._data.weathType);
+    console.log(this._data.WeathDescript);
     // Snowy Weather Background
     if (this._data.weathType === "Snow") {
       const snow = this._randomBackgrounds(config.BACKGROUNDSNOW__DAY);
@@ -86,33 +86,41 @@ class CurrView extends View {
     }
 
     // Foggy Weather Background
-    if (this._data.weathType === "Fog" || this._data.weathType === "Haze" || this._data.weathType === "Mist") {
+    if (
+      this._data.weathType === "Fog" ||
+      this._data.weathType === "Haze" ||
+      this._data.weathType === "Mist"
+    ) {
       const randomFog = this._randomBackgrounds(config.BACKGROUNDFOG__DAY);
       this._generateBackground(randomFog);
     }
 
     // Smokey Weather Background
-    if (this._data.weathType === "Smoke"){
-      const randomSmoke = this._randomBackgrounds(config.SMOKEY__DAY)
-      this._generateBackground(randomSmoke)
+    if (this._data.weathType === "Smoke") {
+      const randomSmoke = this._randomBackgrounds(config.SMOKEY__DAY);
+      this._generateBackground(randomSmoke);
     }
 
     // Tornado weather background
-    if (this._data.weathType === "Tornado"){
-      const tornado = this._randomBackgrounds(config.TORNADO__DAY)
-      this._generateBackground(tornado)
+    if (this._data.weathType === "Tornado") {
+      const tornado = this._randomBackgrounds(config.TORNADO__DAY);
+      this._generateBackground(tornado);
     }
 
     // Ash weather background
-    if (this._data.weathType=== "Ash"){
+    if (this._data.weathType === "Ash") {
       const ash = this._randomBackgrounds(config.ASH__DAY);
-      this._generateBackground(ash)
+      this._generateBackground(ash);
     }
 
     // Squall, dust & sandstorms weather background
-    if (this._data.weathType === "Squall" || this._data.weathType === "Dust" ||this._data.weathType === "Sand"){
-      const squallDustSand = this._randomBackgrounds(config.DUSTSTORM__DAY)
-      this._generateBackground(squallDustSand)
+    if (
+      this._data.weathType === "Squall" ||
+      this._data.weathType === "Dust" ||
+      this._data.weathType === "Sand"
+    ) {
+      const squallDustSand = this._randomBackgrounds(config.DUSTSTORM__DAY);
+      this._generateBackground(squallDustSand);
     }
   }
 
@@ -121,7 +129,6 @@ class CurrView extends View {
     document.body.style.backgroundImage = `url(${image})`;
   }
 
-
   _generateMarkup() {
     return `<img class="weather__icon" src="http://openweathermap.org/img/wn/${
       this._data.weathIcon
@@ -129,8 +136,9 @@ class CurrView extends View {
       <div class="current__weath--titles">
         <h1 class="curr__temp">${Math.round(this._data.temp)}°C</h1>
         <div class="title__seperator"></div>
-        <h1 class="curr__weath">${
-         this.uppserCaseDescription(this._data.WeathDescript)}</h1>
+        <h1 class="curr__weath">${this.uppserCaseDescription(
+          this._data.WeathDescript
+        )}</h1>
       </div>
 
       <div class="current__weath--details">

@@ -10,6 +10,7 @@ class Cities extends View {
   _citiesSection = document.querySelector(".cities__forecast--sect");
   _citiesBtn = document.querySelector(".cities__btn");
   _closeBtn = document.querySelector(".left__icon");
+  _errorMessage = `There has been a error getting the cities weather. Please try again later.`
 
   _toggleCities() {
     this._citiesSection.classList.toggle("cities__forecast--active");
@@ -27,16 +28,20 @@ class Cities extends View {
   }
 
   _generateMarkup() {
-    return this._data.map(city => {
-      return `
+    return this._data
+      .map((city) => {
+        return `
       <div class="cities__box">
             <h4 class="cities__name">${city.name}</h4>
             <div class="cities__content">
               <p class="cities__temp">${Math.round(city.main.temp)}°C</p>
-              <p class="cities__weath">${this.uppserCaseDescription(city.weather[0].description)}</p>
+              <p class="cities__weath">${this.uppserCaseDescription(
+                city.weather[0].description
+              )}</p>
             </div>
-          </div>`
-    }).join("")
+          </div>`;
+      })
+      .join("");
   }
 }
 

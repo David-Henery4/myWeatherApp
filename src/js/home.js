@@ -33,6 +33,7 @@ const searchPage = async function(){
     CurrView._dynamicBackgrounds();
   } catch(err){
     console.log(`SearchPage error happening: ${err}`)
+    Search.renderErrorMsg()
   }
 }
 
@@ -50,6 +51,7 @@ const currentWeather = async function () {
       CurrView._dynamicBackgrounds();
     } catch(err){ // works
       console.error(`CurrentWeather error happening: ${err}`);
+      CurrView.renderErrorMsg()
     }
     });
 };
@@ -72,6 +74,7 @@ const citiesForecast = async function(){
     console.log(model.overallWeathData2)
   } catch(err){ // works
     console.log(`CitiesForecast error happening: ${err}`);
+    Cities.renderErrorMsg()
   }
 }
 
