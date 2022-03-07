@@ -10,6 +10,7 @@ class Search extends View {
   _searchInput = document.querySelector(".search__location--input");
   _getCurrentWeathBtn = document.querySelector(".current__weath--btn");
   _searchBtn = document.querySelector(".search__icon");
+  _errorMessage = `There has been a problem with your search query. Please try another.`;
 
   constructor() {
     super();

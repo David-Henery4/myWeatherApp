@@ -21,28 +21,37 @@ if (module.hot) {
 // console.log(model.overallWeathData2);
 
 const searchPage = async function(){
-  const query = Search.getQuery();
-  console.log(query);
-  const data = await model.fetchSearchCoords(query);
-  await model.fetchSearchData(data);
-  await model.fetchCurrentData(data);
-  console.log(model.overallWeathData2.current);
-  CurrView.render(model.overallWeathData2.current);
-  TimeDateLocal.render(model.overallWeathData2.current);
-  CurrView._dynamicBackgrounds();
+  try {
+    const query = Search.getQuery();
+    console.log(query);
+    const data = await model.fetchSearchCoords(query);
+    await model.fetchSearchData(data);
+    await model.fetchCurrentData(data);
+    console.log(model.overallWeathData2.current);
+    CurrView.render(model.overallWeathData2.current);
+    TimeDateLocal.render(model.overallWeathData2.current);
+    CurrView._dynamicBackgrounds();
+  } catch(err){
+    console.log(`SearchPage error happening: ${err}`)
+  }
 }
 
 const currentWeather = async function () {
   navigator.geolocation.getCurrentPosition(async (c) => {
-    const { longitude, latitude } = c.coords;
-    model.overallWeathData2.usersCoords.lat = latitude;
-    model.overallWeathData2.usersCoords.long = longitude;
-    await model.fetchWeatherCurrent(latitude, longitude);
-    await model.fetchForecastData(latitude, longitude);
-    CurrView.render(model.overallWeathData2.current);
-    TimeDateLocal.render(model.overallWeathData2.current);
-    CurrView._dynamicBackgrounds();
-  });
+      try{
+      const { longitude, latitude } = c.coords;
+      model.overallWeathData2.usersCoords.lat = latitude;
+      model.overallWeathData2.usersCoords.long = longitude;
+      // could return & handle promise here!
+      await model.fetchWeatherCurrent(latitude, longitude);
+      await model.fetchForecastData(latitude, longitude);
+      CurrView.render(model.overallWeathData2.current);
+      TimeDateLocal.render(model.overallWeathData2.current);
+      CurrView._dynamicBackgrounds();
+    } catch(err){ // works
+      console.error(`CurrentWeather error happening: ${err}`);
+    }
+    });
 };
 
 const currentHours = function(){
@@ -54,12 +63,16 @@ const nextWeekForecase = function(){
 }
 
 const citiesForecast = async function(){
-  // done like this because of the dsign pattern
-  const coordsData = await model.fetchCitiesCoords()
-  const data = await model.fetchCitiesData(coordsData)
-  console.log(data)
-  Cities.render(data.cities)
-  console.log(model.overallWeathData2)
+  try{
+    // done like this because of the dsign pattern
+    const coordsData = await model.fetchCitiesCoords()
+    const data = await model.fetchCitiesData(coordsData)
+    console.log(data)
+    Cities.render(data.cities)
+    console.log(model.overallWeathData2)
+  } catch(err){ // works
+    console.log(`CitiesForecast error happening: ${err}`);
+  }
 }
 
 const init = function(){

@@ -3,6 +3,7 @@
 export default class View {
   _data;
   _generalOverlayEle = document.querySelector(".hours__overlay");
+  _errMsgtext = document.querySelector(".error__msg--text");
 
   overlay() {
     this._generalOverlayEle.classList.toggle("hours__overlay--active");
@@ -57,5 +58,11 @@ export default class View {
 
   clear() {
     this._parentElement.innerHTML = "";
+  }
+
+  renderErrorMsg(message = this._errorMessage) {
+    const errorMarkup = `<p>There has been a error: ${message}. please try again later.</p>`;
+    this._errMsgtext.innerHTML = "";
+    this._errMsgtext.insertAdjacentHTML("afterbegin", errorMarkup);
   }
 }

@@ -1,14 +1,19 @@
 .error__msg--wrap{
     max-width: 450px;
     width: 75%;
-    height: 12rem;
-    padding: 5%;
+    height: 14rem;
+    padding: 2%;
     background-color: rgb(243, 236, 236);
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 105;
+    display: none;
+}
+
+.error__msg--active{
+    display: block;
 }
 
 .error__msg--content{

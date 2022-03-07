@@ -9,7 +9,7 @@ export const overallWeathData2 = {
   },
   cities: {},
   usersCoords: {},
-  userSearches:{},
+  userSearches: {},
   userSearchInfo: {},
 };
 
@@ -18,18 +18,30 @@ export const overallWeathData2 = {
 
 //          current weather data (metric)
 export const fetchWeatherCurrent = async function (lat, long) {
-  const res = await fetch(
-    `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=metric&appid=03c0ab070c431f94285f47bf8bf82c9c`
-  );
-  const data = await res.json();
-  console.log(data);
-  handlingCurWeather(data);
+  try {
+    const res = await fetch(
+      `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=metric&appid=03c0ab070c431f94285f47bf8bf82c9c`
+    );
+    if (!res.ok) {
+      throw new Error(`error found: ${res.status}`);
+    }
+    console.log(res);
+    const data = await res.json();
+    console.log(data);
+    handlingCurWeather(data);
+    console.log(overallWeathData2.current)
+    // return overallWeathData2.current;
+  } catch (err) {
+    console.log(err.message)
+    console.error(`error stuck here: ${err.message}`)
+    throw err
+  }
 };
 
 // Handling current weather data
 export const handlingCurWeather = function (data) {
   // messy, must be better way! (Maybe destructuring or loop)
-  console.log(data)
+  console.log(data);
   overallWeathData2.current.WeathDescript = data.weather[0].description;
   overallWeathData2.current.weathType = data.weather[0].main;
   overallWeathData2.current.weathIcon = data.weather[0].icon;
@@ -42,20 +54,25 @@ export const handlingCurWeather = function (data) {
   overallWeathData2.current.maxTemp = data.main.temp_max;
   overallWeathData2.current.feelsLike = data.main.feels_like;
   overallWeathData2.current.temp = data.main.temp;
-}
+};
 
 //            FETCHING CURRENT DAY HOURS FORCAST
 //                 FOR CURRENT USER
 
 export const fetchForecastData = async function (lat, long) {
-  const URL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude=current&units=metric&appid=03c0ab070c431f94285f47bf8bf82c9c`;
-  const res = await fetch(URL);
-  const data = await res.json();
-  console.log(data);
-  handlingHourlyData(data);
-  handlingNextWeekData(data);
-  // const unix = data.daily[0].dt;
-  // console.log(new Date(unix*1000))
+  try{
+    const URL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude=current&units=metric&appid=03c0ab070c431f94285f47bf8bf82c9c`;
+    const res = await fetch(URL);
+    const data = await res.json();
+    console.log(data);
+    handlingHourlyData(data);
+    handlingNextWeekData(data);
+    // const unix = data.daily[0].dt;
+    // console.log(new Date(unix*1000))
+    console.log(overallWeathData2.current)
+  } catch(err){
+    throw err.message
+  }
 };
 
 // these will be moved to the bottom to be reused
@@ -76,95 +93,133 @@ const handlingNextWeekData = function (week) {
 
 // Fetching Cities Coords
 export const fetchCitiesCoords = async function () {
-  const top10Cities = [
-    "London",
-    "Lisbon",
-    "Moscow",
-    "Rio-de-janeiro",
-    "Mexico-city",
-    "Singapore",
-    "Melbourne",
-    "Barcelona",
-    "Rome",
-    "New-york",
-  ];
-  //
-  const cityLocations = [];
-  await Promise.all(
-    top10Cities.map(async (city, i) => {
-      const res = await fetch(
-        `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=03c0ab070c431f94285f47bf8bf82c9c`
-      );
-      const data = await res.json();
-      cityLocations.push(data);
-    })
-  );
-  const cityCoordsRay = cityLocations.flat();
-  return cityCoordsRay
+  try{
+    const top10Cities = [
+      "London",
+      "Lisbon",
+      "Moscow",
+      "Rio-de-janeiro",
+      "Mexico-city",
+      "Singapore",
+      "Melbourne",
+      "Barcelona",
+      "Rome",
+      "New-york",
+    ];
+    //
+    const cityLocations = [];
+    await Promise.all(
+      top10Cities.map(async (city, i) => {
+        const res = await fetch(
+          `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=03c0ab070c431f94285f47bf8bf82c9c`
+        );
+        if (!res.ok){
+          throw new Error("error getting cities coords")
+        }
+        const data = await res.json();
+        cityLocations.push(data);
+      })
+    );
+    const cityCoordsRay = cityLocations.flat();
+    return cityCoordsRay;
+  } catch (err){
+    console.log('Passes though here')
+      throw err
+  }
 };
 
 // Fetching cities current data
 export const fetchCitiesData = async function (cityCoords) {
-  // console.log(cityCoords);
-  /////////////////////
-  const cityData = [];
-  await Promise.all(
-    cityCoords.map(async (city) => {
-      const res = await fetch(
-        `http://api.openweathermap.org/data/2.5/weather?lat=${city.lat}&lon=${city.lon}&units=metric&appid=03c0ab070c431f94285f47bf8bf82c9c`
-      );
-      const data = await res.json();
-      cityData.push(data);
-    })
-  );
-  cityData.map(city => {
-    if (city.name === "Chiado") city.name = "Lisbon";
-    if (city.name === "Sant Pere, Santa Caterina i La Ribera") city.name = "Barcelona"
-  })
-  // sort and distribute
-  cityData.sort((a, b) => a.name.localeCompare(b.name));
-  overallWeathData2.cities = cityData;
-  console.log(`This is flowing`, overallWeathData2);
-  return overallWeathData2
-  ///////////////////
+  try {
+    // console.log(cityCoords);
+    /////////////////////
+    const cityData = [];
+    await Promise.all(
+      cityCoords.map(async (city) => {
+        const res = await fetch(
+          `http://api.openweathermap.org/data/2.5/weather?lat=${city.lat}&lon=${city.lon}&units=metric&appid=03c0ab070c431f94285f47bf8bf82c9c`
+        );
+        if (!res.ok){
+          throw new Error(`error getting cities data: ${res.status}`)
+        }
+        const data = await res.json();
+        cityData.push(data);
+      })
+    );
+    cityData.map((city) => {
+      if (city.name === "Chiado") city.name = "Lisbon";
+      if (city.name === "Sant Pere, Santa Caterina i La Ribera")
+        city.name = "Barcelona";
+    });
+    // sort and distribute
+    cityData.sort((a, b) => a.name.localeCompare(b.name));
+    overallWeathData2.cities = cityData;
+    console.log(`This is flowing`, overallWeathData2);
+    return overallWeathData2;
+  } catch(err){
+    throw err
+  }
 };
 ///////////////////////////////////////////////////
 
 //        WEATHER DATA FROM SEARCH QUERY
 
-// Fetching Coords on user search query 
-export const fetchSearchCoords = async function(query){
-  // console.log(query)
-  const queryLower = query.slice(1)
-  const readyquery = query[0].toUpperCase().concat(queryLower)
-  console.log(readyquery)
-  overallWeathData2.userSearches = readyquery
-  const res = await fetch(
-    `http://api.openweathermap.org/geo/1.0/direct?q=${readyquery}&limit=1&appid=03c0ab070c431f94285f47bf8bf82c9c`
-  );
-  const data = await res.json();
-  console.log(data)
-  return data
-  // fetchSearchData(data)
-  // fetchCurrentData(data)
+// Fetching Coords on user search query
+export const fetchSearchCoords = async function (query) {
+  try{
+    // console.log(query)
+    const queryLower = query.slice(1);
+    const readyquery = query[0].toUpperCase().concat(queryLower);
+    console.log(readyquery);
+    overallWeathData2.userSearches = readyquery;
+    const res = await fetch(
+      `http://api.openweathermap.org/geo/1.0/direct?q=${readyquery}&limit=1&appid=03c0ab070c431f94285f47bf8bf82c9c`
+    );
+    if (!res.ok){
+      throw new Error(`Error from Response: ${res.status}`)
+    }
+    const data = await res.json();
+    console.log(data);
+    return data;
+    // fetchSearchData(data)
+    // fetchCurrentData(data)
+  } catch(err){
+    throw err
+  }
 };
 
 // Fetch hourly and next week weather data from query
-export const fetchSearchData = async function(coordData){
-  const URL = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordData[0].lat}&lon=${coordData[0].lon}&units=metric&exclude=minutely,alerts&appid=03c0ab070c431f94285f47bf8bf82c9c`;
-  const res = await fetch(URL);
-  const data = await res.json();
-  console.log(data)
-  handlingHourlyData(data)
-  handlingNextWeekData(data)
-}
+export const fetchSearchData = async function (coordData) {
+  try{
+    const URL = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordData[0].lat}&lon=${coordData[0].lon}&units=metric&exclude=minutely,alerts&appid=03c0ab070c431f94285f47bf8bf82c9c`;
+    const res = await fetch(URL);
+    if (!res.ok) {
+      throw new Error(`Error from Response: ${res.status}`);
+    }
+    const data = await res.json();
+    console.log(data);
+    handlingHourlyData(data);
+    handlingNextWeekData(data);
+  } catch(err){
+    console.log(`from forecast from query: ${err.message}`)
+    throw err
+  }
+};
 
 // Fetch Current weather Data from query
-export const fetchCurrentData = async function(coordData){
-  const URL = `http://api.openweathermap.org/data/2.5/weather?lat=${coordData[0].lat}&lon=${coordData[0].lon}&units=metric&appid=03c0ab070c431f94285f47bf8bf82c9c`;
-  const res = await fetch(URL);
-  const data = await res.json();
-  console.log(data)
-  console.log(overallWeathData2)
-  handlingCurWeather(data)
+export const fetchCurrentData = async function (coordData) {
+  try {
+    const URL = `http://api.openweathermap.org/data/2.5/weather?lat=${coordData[0].lat}&lon=${coordData[0].lon}&units=metric&appid=03c0ab070c431f94285f47bf8bf82c9c`;
+    const res = await fetch(URL);
+    if (!res.ok) {
+      throw new Error(`Error from Response: ${res.status}`);
+    }
+    const data = await res.json();
+    console.log(data);
+    console.log(overallWeathData2);
+    handlingCurWeather(data);
+  } catch (err) {
+    console.log(`from current from query: ${err.message}`);
+    throw err;
+  }
 };
