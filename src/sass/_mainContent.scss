@@ -26,9 +26,10 @@
 }
 
 .current__weath--details{
-    height: 45%;
+    // was at 45%
+    height: 50%;
     width: 100%;
-    background-color: rgba(128, 128, 128, 0.507);
+    background-color: $grey-details-color;
     backdrop-filter: blur(20px);
     border-radius: 30px;
     display: grid;

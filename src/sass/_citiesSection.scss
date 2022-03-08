@@ -7,7 +7,7 @@
   background-position: 100%;
   position: absolute;
   transform: translateX(100%);
-  transition: 0.5s ease-in-out;
+  transition: $transition-speed ease-in-out;
   top: 0;
   right: 0;
   z-index: 7;
@@ -15,7 +15,7 @@
 
 .cities__forecast--active {
   transform: translateX(0%);
-  transition: 0.5s ease-in-out;
+  transition: $transition-speed ease-in-out;
 }
 
 .cities__container {
@@ -30,7 +30,7 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: $overlay-color;
   top: 0;
   left: 0;
   // z-index: 0;
@@ -39,7 +39,7 @@
 .cities__box {
   width: 100%;
   height: 100%;
-  border-top: 2px solid white;
+  border-top: 2px solid $primary-color;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -51,7 +51,7 @@
   }
 }
 .cities__box:nth-child(even) {
-  border-left: 2px solid white;
+  border-left: 2px solid $primary-color;
 }
 // nth child odd to get borders
 .cities__box:nth-child(1),
