@@ -4,6 +4,7 @@ class WeekView extends View {
   _parentElement = document.querySelector(".weeks__container");
   _weekBtn = document.querySelector(".week__btn");
   _weekSection = document.querySelector(".week__forecast--sect");
+  _backgroundElement = document.getElementById("week__image");
   _closeBtn = document.querySelector(".right__icon");
 
   constructor() {
@@ -32,9 +33,9 @@ class WeekView extends View {
   }
 
 
-  dataCheck(firstDay){
-  // console.log(firstDay);
-  console.log(this._data)
+  backgroundsData(){
+  const { description: weatherDescript, main: type } = this._data[0].weather[0];
+  this.dynamicBackgrounds(type,weatherDescript)
   }
 
   _generateMarkup() {

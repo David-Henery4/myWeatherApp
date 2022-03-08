@@ -32,7 +32,8 @@ const searchPage = async function(){
     console.log(model.overallWeathData2.current);
     CurrView.render(model.overallWeathData2.current);
     TimeDateLocal.render(model.overallWeathData2.current);
-    CurrView._dynamicBackgrounds();
+    // CurrView._dynamicBackgrounds();
+    CurrView.backgroundsData()
   } catch(err){
     // Search._errorCheck = true;
     Search._searchIconAction();
@@ -44,16 +45,17 @@ const searchPage = async function(){
 const currentWeather = async function () {
   navigator.geolocation.getCurrentPosition(async (c) => {
       try{
-      const { longitude, latitude } = c.coords;
-      model.overallWeathData2.usersCoords.lat = latitude;
-      model.overallWeathData2.usersCoords.long = longitude;
-      // could return & handle promise here!
-      await model.fetchWeatherCurrent(latitude, longitude);
-      await model.fetchForecastData(latitude, longitude);
-      CurrView.render(model.overallWeathData2.current);
-      TimeDateLocal.render(model.overallWeathData2.current);
-      CurrView._dynamicBackgrounds();
-    } catch(err){ // works
+        const { longitude, latitude } = c.coords;
+        model.overallWeathData2.usersCoords.lat = latitude;
+        model.overallWeathData2.usersCoords.long = longitude;
+        // could return & handle promise here!
+        await model.fetchWeatherCurrent(latitude, longitude);
+        await model.fetchForecastData(latitude, longitude);
+        CurrView.render(model.overallWeathData2.current);
+        TimeDateLocal.render(model.overallWeathData2.current);
+        // CurrView._dynamicBackgrounds();
+        CurrView.backgroundsData()
+      } catch(err){ // works
       console.error(`CurrentWeather error happening: ${err}`);
       CurrView.renderErrorMsg()
     }
@@ -66,7 +68,7 @@ const currentHours = function(){
 
 const nextWeekForecase = function(){
   weekView.render(model.overallWeathData2.forecast.nextWeek);
-  weekView.dataCheck();
+  weekView.backgroundsData();
   // weekView.dataCheck(model.overallWeathData2.forecast.nextWeek[0]);
 }
 

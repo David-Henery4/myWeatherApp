@@ -1,5 +1,6 @@
 //             MAIN VIEW CLASS
 import icons from "url:../../images/Spinner-icon.svg"
+import * as config from "../config.js";
 
 export default class View {
   _data;
@@ -67,6 +68,104 @@ export default class View {
 
   clear() {
     this._parentElement.innerHTML = "";
+  }
+
+  // random backgrounds
+  randomBackgrounds(imageArray) {
+    const image = imageArray[Math.floor(Math.random() * imageArray.length)];
+    return image;
+  }
+
+  dynamicBackgrounds(type,description) {
+    console.log("dynamicBackgrounds background active");
+    // console.log(this._data.weathType);
+    // console.log(this._data.WeathDescript);
+    // Snowy Weather Background
+    if (type === "Snow") {
+      const snow = this.randomBackgrounds(config.BACKGROUNDSNOW__DAY);
+      this.generateBackground(snow);
+    }
+
+    // Cloudy Weather Background
+    if (type === "Clouds") {
+      const randomClouds = this.randomBackgrounds(config.BACKGROUNDCLOUDY__DAY);
+      this.generateBackground(randomClouds);
+    }
+
+    // Partial Cloudy Weather
+    if (
+      description === "scattered clouds" ||
+      description === "few clouds"
+    ) {
+      const randomPartialClouds = this.randomBackgrounds(
+        config.BACKGROUNDPARTCLOUDY__DAY
+      );
+      this.generateBackground(randomPartialClouds);
+    }
+
+    // Raining Weather Background
+    if (type === "Rain" || type === "Drizzle") {
+      const randomRain = this.randomBackgrounds(config.BACKGROUNDRAIN__DAY);
+      this.generateBackground(randomRain);
+    }
+
+    // Sunny Weather Background
+    if (type === "Clear") {
+      const randomSunny = this.randomBackgrounds(config.BACKGROUNDSUN__DAY);
+      this.generateBackground(randomSunny);
+    }
+
+    // ThunderStorm Weather BackGround
+    if (type === "Thunderstorm") {
+      const randomLightning = this.randomBackgrounds(
+        config.BACKGROUNDLIGHTN__DAY
+      );
+      this.generateBackground(randomLightning);
+    }
+
+    // Foggy Weather Background
+    if (
+      type === "Fog" ||
+      type === "Haze" ||
+      type === "Mist"
+    ) {
+      const randomFog = this.randomBackgrounds(config.BACKGROUNDFOG__DAY);
+      this.generateBackground(randomFog);
+    }
+
+    // Smokey Weather Background
+    if (type === "Smoke") {
+      const randomSmoke = this.randomBackgrounds(config.SMOKEY__DAY);
+      this.generateBackground(randomSmoke);
+    }
+
+    // Tornado weather background
+    if (type === "Tornado") {
+      const tornado = this.randomBackgrounds(config.TORNADO__DAY);
+      this.generateBackground(tornado);
+    }
+
+    // Ash weather background
+    if (type === "Ash") {
+      const ash = this.randomBackgrounds(config.ASH__DAY);
+      this.generateBackground(ash);
+    }
+
+    // Squall, dust & sandstorms weather background
+    if (
+      type === "Squall" ||
+      type === "Dust" ||
+      type === "Sand"
+    ) {
+      const squallDustSand = this.randomBackgrounds(config.DUSTSTORM__DAY);
+      this.generateBackground(squallDustSand);
+    }
+  }
+
+  generateBackground(image) {
+    console.log("generate background active");
+    console.log(this._backgroundElement);
+    this._backgroundElement.style.backgroundImage = `url(${image})`;
   }
 
   // ERROR METHODS
