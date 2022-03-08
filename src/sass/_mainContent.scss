@@ -1,84 +1,82 @@
-.current__day--wrap{
-    height: 67%;
-    width: 100%;
-    flex-direction: column;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+.current__day--wrap {
+  height: 67%;
+  width: 100%;
+  flex-direction: column;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
-.weather__icon{
-    width: 6rem;
-    height: 6rem;
+.weather__icon {
+  width: 6rem;
+  height: 6rem;
 }
 
-.current__weath--titles{
-    display: flex;
-    height: 8.7rem;
-    width: 100%;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
-    h1{
-        font-size: 2.2rem;
-        text-align: center;
-    }
+.current__weath--titles {
+  display: flex;
+  height: 8.7rem;
+  width: 100%;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  h1 {
+    font-size: 2.2rem;
+    text-align: center;
+  }
 }
 
-.current__weath--details{
-    // was at 45%
-    height: 50%;
-    width: 100%;
-    background-color: $grey-details-color;
-    backdrop-filter: blur(20px);
-    border-radius: 30px;
-    display: grid;
-    grid-template-areas:
+.current__weath--details {
+  // was at 45%
+  height: 50%;
+  width: 100%;
+  background-color: $grey-details-color;
+  backdrop-filter: blur(20px);
+  border-radius: 30px;
+  display: grid;
+  grid-template-areas:
     "hTemp rain sunrise"
     "lTemp wind sunset";
-    .high__temp{
+  .high__temp {
     grid-area: hTemp;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    }
-    .low__temp{
+  }
+  .low__temp {
     @extend .high__temp;
     grid-area: lTemp;
-    }
-    .sunrise{
-        @extend .high__temp;
-        grid-area: sunrise
-    }
-    .sunset{
-        @extend .high__temp;
-        grid-area: sunset;
-    }
-    .wind{
-        @extend .high__temp;
-        grid-area: wind;
-    }
-    .feelsLike{
-        @extend .high__temp;
-        grid-area: rain;
-    }
+  }
+  .sunrise {
+    @extend .high__temp;
+    grid-area: sunrise;
+  }
+  .sunset {
+    @extend .high__temp;
+    grid-area: sunset;
+  }
+  .wind {
+    @extend .high__temp;
+    grid-area: wind;
+  }
+  .feelsLike {
+    @extend .high__temp;
+    grid-area: rain;
+  }
 }
 
 //                 MEDIA QUERIES
 
-@media (min-width: 600px){
-    .current__day--wrap{
-        // height: ;
-        max-width: 538px;
-        margin: 0 auto;
+@media (min-width: 600px) {
+  .current__day--wrap {
+    // height: ;
+    max-width: 538px;
+    margin: 0 auto;
+  }
+  .current__weath--titles {
+    // justify-content: center;
+    h1 {
+      font-size: 3.2rem;
     }
-    .current__weath--titles{
-        // justify-content: center;
-        h1{
-            font-size: 3.2rem;
-        }
-    }
+  }
 }
-
-

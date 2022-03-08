@@ -66,6 +66,8 @@ const currentHours = function(){
 
 const nextWeekForecase = function(){
   weekView.render(model.overallWeathData2.forecast.nextWeek);
+  weekView.dataCheck();
+  // weekView.dataCheck(model.overallWeathData2.forecast.nextWeek[0]);
 }
 
 const citiesForecast = async function(){

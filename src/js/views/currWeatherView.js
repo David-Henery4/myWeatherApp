@@ -40,6 +40,7 @@ class CurrView extends View {
     console.log("dynamicBackgrounds background active");
     console.log(this._data.weathType);
     console.log(this._data.WeathDescript);
+    console.log(this._data)
     // Snowy Weather Background
     if (this._data.weathType === "Snow") {
       const snow = this._randomBackgrounds(config.BACKGROUNDSNOW__DAY);

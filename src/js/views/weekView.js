@@ -10,10 +10,12 @@ class WeekView extends View {
     super();
     this._weekOpen();
     this._weekClose();
+    // this.dataCheck()
   }
 
   _toggleWeek() {
     this._weekSection.classList.toggle("week__forecast--active");
+    // console.log(this._data[0])
   }
 
   _weekOpen() {
@@ -27,6 +29,12 @@ class WeekView extends View {
 
   addWeekHandler(handler) {
     this._weekBtn.addEventListener("click", handler);
+  }
+
+
+  dataCheck(firstDay){
+  // console.log(firstDay);
+  console.log(this._data)
   }
 
   _generateMarkup() {

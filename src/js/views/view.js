@@ -1,4 +1,5 @@
 //             MAIN VIEW CLASS
+import icons from "url:../../images/Spinner-icon.svg"
 
 export default class View {
   _data;
@@ -8,9 +9,9 @@ export default class View {
   _errMsgtext = document.querySelector(".error__msg--text");
   _errExitIcon = document.querySelector(".exit__icon--errmsg");
 
-  constructor(){
+  constructor() {
     // super();
-    this.exitErrorMsg()
+    this.exitErrorMsg();
   }
 
   overlay() {
@@ -69,7 +70,7 @@ export default class View {
   }
 
   // ERROR METHODS
-  _removeExitIcon(){
+  _removeExitIcon() {
     this._errMsgContainer.classList.remove("error__msg--active");
   }
   renderErrorMsg(message = this._errorMessage) {
@@ -78,7 +79,10 @@ export default class View {
     this._errMsgtext.insertAdjacentHTML("afterbegin", errorMarkup);
     this._errMsgContainer.classList.add("error__msg--active");
   }
-  exitErrorMsg(){
-    this._errExitIcon.addEventListener("click", this._removeExitIcon.bind(this));
+  exitErrorMsg() {
+    this._errExitIcon.addEventListener(
+      "click",
+      this._removeExitIcon.bind(this)
+    );
   }
 }
