@@ -21,6 +21,15 @@ if (module.hot) {
 // console.log(model.weathData);
 // console.log(model.overallWeathData2);
 
+/**
+ * Function called by the handler in the "searchView"
+ * @type {fetchSearchCoords} takes query returns coords
+ * @type {fetchSearchData} takes coords and fetches data to the overallWeather object in the model
+ * @type {fetchSCurrentData} takes coords and fetches data to the overallWeather object in the model
+ * @method render takes data from overall object to be displayed in the UI by the 'CurrView'
+ * @method render takes time & date from overall object to be displayed in the UI by the 'TimeDateLocal' view.
+ * @method backgroundsData Triggers dynamic background based on current weather
+ */
 const searchPage = async function(){
   try {
     // Search._errorCheck = false;
@@ -42,6 +51,14 @@ const searchPage = async function(){
   }
 }
 
+/**
+ * Fucnction called by the 'current weather' button in the 'searchView'. Gets users location and renders the weather data.
+ * @type {callback} getCurrentPosition Gets the users current coordinates
+ * @async fetchWeatherCurrent Takes coordinates to the fetch data functions 
+ * @async fetchForecastData Takes coordinates to the fetch data functions .
+ * @method render Takes data from overallWeather object and renders it in the 'CurrView' and 'TimeDateLocal' to the UI.
+ * @method backgroundsData Creates dynamic background for the current view based on the current weather data.
+ */
 const currentWeather = async function () {
   navigator.geolocation.getCurrentPosition(async (c) => {
       try{
@@ -60,16 +77,34 @@ const currentWeather = async function () {
     });
 };
 
+/**
+ * Renders data into next five hours section. (Called by the 'Hours' handler)
+ * @function currentHours
+ * Takes data from overallWeather object
+ * @method render Renders the data from the object into the 'Hours' view and into the UI of the hours section.
+ */
 const currentHours = function(){
   Hours.render(model.overallWeathData2.forecast.hours);
 }
 
+/**
+ * Renders data into next five days section. (Called by the 'WeekView' handler)
+ * @function nextWeekForecase
+ * Takes data from overallWeather object
+ * @method render Renders the data from the object into the 'WeekView' and into the UI of the hours section.
+ * @method backgroundsData 
+ * Creates Dynamic background for the week UI based on the weather data
+ */
 const nextWeekForecase = function(){
   weekView.render(model.overallWeathData2.forecast.nextWeek);
   weekView.backgroundsData();
   // weekView.dataCheck(model.overallWeathData2.forecast.nextWeek[0]);
 }
 
+/**
+ * @async citiesForecast Gets cities data and renders to cities UI (Called by the cities handler)
+ * @method render city data and renders it to the 'Cities' view and then renders it to the cities section UI
+ */
 const citiesForecast = async function(){
   try{
     // done like this because of the dsign pattern
@@ -84,6 +119,9 @@ const citiesForecast = async function(){
   }
 }
 
+/**
+ * @function init Holds all the View handlers and waits for the events that trigger the views
+ */
 const init = function(){
   // was using currView
   Search.currentViewHandlerAndClickEvent(currentWeather);
