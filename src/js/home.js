@@ -46,8 +46,6 @@ const currentWeather = async function () {
   navigator.geolocation.getCurrentPosition(async (c) => {
       try{
         const { longitude, latitude } = c.coords;
-        model.overallWeathData2.usersCoords.lat = latitude;
-        model.overallWeathData2.usersCoords.long = longitude;
         // could return & handle promise here!
         await model.fetchWeatherCurrent(latitude, longitude);
         await model.fetchForecastData(latitude, longitude);

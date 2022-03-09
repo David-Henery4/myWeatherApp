@@ -1,6 +1,20 @@
-//                 Model
+//                          Model
 console.log("Model: Working");
-//          Weather Object (openweathermap)
+
+// Weather Object (openweathermap)
+/**
+ * All Fetched data is stored in this object.
+ * @type {object}
+ * For use thoughout our project
+ * @property {current}
+ * Is the current weather data.
+ * @property {forecast}
+ * Contains forcast data for hours and week sections.
+ * @property {cities}
+ * Contains current weather data for the cities section
+ * @property {userSearches}
+ * Contains string of user search query
+ */
 export const overallWeathData2 = {
   current: {},
   forecast: {
@@ -8,17 +22,26 @@ export const overallWeathData2 = {
     nextWeek: {},
   },
   cities: {},
-  usersCoords: {},
   userSearches: {},
-  userSearchInfo: {},
+  usersCoords: {},
+  // userSearchData was here but not needed
 };
 
 //       FETCHING WEATHER DATA (from openweathermap)
 //                 FOR CURRENT USER LOCATION
 
 //          current weather data (metric)
+/**
+ * Gets Current weather based on users location
+ * @param {number} lat 
+ * Current Users Latitude
+ * @param {number} long
+ * Current Users Longitude 
+ */
 export const fetchWeatherCurrent = async function (lat, long) {
   try {
+    overallWeathData2.usersCoords.lat = lat;
+    overallWeathData2.usersCoords.long = long;
     const res = await fetch(
       `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=metric&appid=03c0ab070c431f94285f47bf8bf82c9c`
     );
@@ -39,6 +62,11 @@ export const fetchWeatherCurrent = async function (lat, long) {
 };
 
 // Handling current weather data
+/**
+ * This function destructors the data before storing it in the     overallWeather object.
+ * @param {object} data 
+ * Weather data from the fetchWeatherCurrent function
+ */
 export const handlingCurWeather = function (data) {
   // messy, must be better way! (Maybe destructuring or loop)
   console.log(data);
@@ -59,6 +87,13 @@ export const handlingCurWeather = function (data) {
 //            FETCHING CURRENT DAY HOURS FORCAST
 //                 FOR CURRENT USER
 
+/**
+ * Gets forcast data for users current location
+ * @param {number} lat
+ * Users latitude 
+ * @param {number} long 
+ * Users longitude
+ */
 export const fetchForecastData = async function (lat, long) {
   try{
     const URL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude=current&units=metric&appid=03c0ab070c431f94285f47bf8bf82c9c`;
@@ -75,14 +110,22 @@ export const fetchForecastData = async function (lat, long) {
   }
 };
 
-// these will be moved to the bottom to be reused
-
+/**
+ * Takes in Hours data from fetchForecastData and applies it to the overallWeather object.
+ * @param {Array|object} hours
+ * Takes in Array of objects that represent each hour and is reduced to only the next five hours 
+ */
 const handlingHourlyData = function (hours) {
   const next5Hours = hours.hourly.slice(1, 6);
   overallWeathData2.forecast.hours = next5Hours;
   console.log(overallWeathData2);
 };
 
+/**
+ * Takes in days of the week data from fetchForecastData and applies it to the overallWeather object.
+ * @param {Array|object} week
+ * Takes in Array of objects that represent each day of the week and is reduced to only the next five days.
+ */
 const handlingNextWeekData = function (week) {
   const next5Days = week.daily.slice(1, 6);
   overallWeathData2.forecast.nextWeek = next5Days;
@@ -92,6 +135,10 @@ const handlingNextWeekData = function (week) {
 //            FETCHING CITIES DATA
 
 // Fetching Cities Coords
+/**
+ * Loops though list of city locations and performs geocoding to get the coordinates for each city.
+ * @returns {Array} An array of coordinates for each city we later use for getting each cities current weather.
+ */
 export const fetchCitiesCoords = async function () {
   try{
     const top10Cities = [
@@ -129,10 +176,13 @@ export const fetchCitiesCoords = async function () {
 };
 
 // Fetching cities current data
+/**
+ * Uses city coordinates to fetch weather data about those locations.
+ * @param {Array} cityCoords Array of city coordinates
+ * @returns {object} overallweather object with the cities weather data added, returned to the controler to be renderd into the current weather view
+ */
 export const fetchCitiesData = async function (cityCoords) {
   try {
-    // console.log(cityCoords);
-    /////////////////////
     const cityData = [];
     await Promise.all(
       cityCoords.map(async (city) => {
@@ -165,6 +215,11 @@ export const fetchCitiesData = async function (cityCoords) {
 //        WEATHER DATA FROM SEARCH QUERY
 
 // Fetching Coords on user search query
+/**
+ * Takes in user input query and fetches the coordinates for that location
+ * @param {string} query Users search input
+ * @returns {number} coords from query
+ */
 export const fetchSearchCoords = async function (query) {
   try{
     // console.log(query)
@@ -189,6 +244,10 @@ export const fetchSearchCoords = async function (query) {
 };
 
 // Fetch hourly and next week weather data from query
+/**
+ * Fetches forecast data from coordinates and sends them to the handler functions to be formated and stored in overallWeather object
+ * @param {number} coordData coordinates from input query
+ */
 export const fetchSearchData = async function (coordData) {
   try{
     const URL = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordData[0].lat}&lon=${coordData[0].lon}&units=metric&exclude=minutely,alerts&appid=03c0ab070c431f94285f47bf8bf82c9c`;
@@ -207,6 +266,10 @@ export const fetchSearchData = async function (coordData) {
 };
 
 // Fetch Current weather Data from query
+/**
+ * Fetches Current weather data from coordinates and sends them to the handler functions to be formated and stored in overallWeather object
+ * @param {number} coordData coordinates from input query
+ */
 export const fetchCurrentData = async function (coordData) {
   try {
     const URL = `http://api.openweathermap.org/data/2.5/weather?lat=${coordData[0].lat}&lon=${coordData[0].lon}&units=metric&appid=03c0ab070c431f94285f47bf8bf82c9c`;
