@@ -1,3 +1,5 @@
+import "core-js/stable";
+import "regenerator-runtime/runtime";
 //                Main/Home J.S
 import * as model from "./model.js";
 // View Classes Imports
