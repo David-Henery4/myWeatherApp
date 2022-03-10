@@ -43,7 +43,7 @@ export const fetchWeatherCurrent = async function (lat, long) {
     overallWeathData2.usersCoords.lat = lat;
     overallWeathData2.usersCoords.long = long;
     const res = await fetch(
-      `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=metric&appid=03c0ab070c431f94285f47bf8bf82c9c`
+      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=metric&appid=03c0ab070c431f94285f47bf8bf82c9c`
     );
     if (!res.ok) {
       throw new Error(`error found: ${res.status}`);
@@ -145,7 +145,7 @@ export const fetchCitiesCoords = async function () {
     await Promise.all(
       top10Cities.map(async (city, i) => {
         const res = await fetch(
-          `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=03c0ab070c431f94285f47bf8bf82c9c`
+          `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=03c0ab070c431f94285f47bf8bf82c9c`
         );
         if (!res.ok){
           throw new Error("error getting cities coords")
@@ -173,7 +173,7 @@ export const fetchCitiesData = async function (cityCoords) {
     await Promise.all(
       cityCoords.map(async (city) => {
         const res = await fetch(
-          `http://api.openweathermap.org/data/2.5/weather?lat=${city.lat}&lon=${city.lon}&units=metric&appid=03c0ab070c431f94285f47bf8bf82c9c`
+          `https://api.openweathermap.org/data/2.5/weather?lat=${city.lat}&lon=${city.lon}&units=metric&appid=03c0ab070c431f94285f47bf8bf82c9c`
         );
         if (!res.ok){
           throw new Error(`error getting cities data: ${res.status}`)
@@ -211,7 +211,7 @@ export const fetchSearchCoords = async function (query) {
     const readyquery = query[0].toUpperCase().concat(queryLower);
     overallWeathData2.userSearches = readyquery;
     const res = await fetch(
-      `http://api.openweathermap.org/geo/1.0/direct?q=${readyquery}&limit=1&appid=03c0ab070c431f94285f47bf8bf82c9c`
+      `https://api.openweathermap.org/geo/1.0/direct?q=${readyquery}&limit=1&appid=03c0ab070c431f94285f47bf8bf82c9c`
     );
     if (!res.ok){
       throw new Error(`Error from Response: ${res.status}`)
@@ -250,7 +250,7 @@ export const fetchSearchData = async function (coordData) {
  */
 export const fetchCurrentData = async function (coordData) {
   try {
-    const URL = `http://api.openweathermap.org/data/2.5/weather?lat=${coordData[0].lat}&lon=${coordData[0].lon}&units=metric&appid=03c0ab070c431f94285f47bf8bf82c9c`;
+    const URL = `https://api.openweathermap.org/data/2.5/weather?lat=${coordData[0].lat}&lon=${coordData[0].lon}&units=metric&appid=03c0ab070c431f94285f47bf8bf82c9c`;
     const res = await fetch(URL);
     if (!res.ok) {
       throw new Error(`Error from Response: ${res.status}`);
