@@ -21,6 +21,7 @@ import misty_forrest from "url:../images/misty-forrest.jpg";
 import misty_street from "url:../images/misty-street.jpg";
 import misty_trees from "url:../images/misty-trees.jpg"
 
+
 // dust storm image imports
 import dust_storm from "url:../images/dust-storm.jpg";
 import dust_storm_two from "url:../images/dust-storm-two.jpg";
