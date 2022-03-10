@@ -1,5 +1,4 @@
 import View from "./view.js";
-// import searchIcon from "url:../../images/search-icon.svg";
 
 /**
  * @class 'TimeDateLocal' contain everything to do with the time, date in the current UI. (inherits from the 'View' parent)

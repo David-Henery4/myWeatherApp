@@ -26,7 +26,6 @@
 }
 
 .current__weath--details {
-  // was at 45%
   height: 50%;
   width: 100%;
   background-color: $grey-details-color;
@@ -69,12 +68,10 @@
 
 @media (min-width: 600px) {
   .current__day--wrap {
-    // height: ;
     max-width: 538px;
     margin: 0 auto;
   }
   .current__weath--titles {
-    // justify-content: center;
     h1 {
       font-size: 3.2rem;
     }

@@ -10,17 +10,9 @@
   justify-content: center;
   align-items: center;
   transition: $transition-speed ease-in-out;
-  // Might change colours/styles later
-  // keep till end just in case!
-  // right: 50%;
-  // bottom: 50%;
-  // transform: translate(0%, 0%);
-  // background-color: rgb(224, 217, 217);
 }
 
 .page__remove {
-  // display: none;
-  // or add
   transition: $transition-speed ease-in-out;
   opacity: 0;
   visibility: hidden;
@@ -80,7 +72,6 @@
       background-color: transparent;
       border-bottom: 2px solid $primary-color;
       outline: none;
-      // border-radius: 20px;
       padding: 3px;
     }
   }
@@ -91,7 +82,6 @@
   .search__current--sect {
     @extend .search__location--sect;
     button {
-      // background-color: white;
       border: none;
       border-radius: 20px;
       color: #6e6d6d;

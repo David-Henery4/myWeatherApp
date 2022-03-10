@@ -1,5 +1,4 @@
 //             MAIN VIEW CLASS
-import icons from "url:../../images/Spinner-icon.svg"
 import * as config from "../config.js";
 
 /**
@@ -15,7 +14,6 @@ export default class View {
   _errExitIcon = document.querySelector(".exit__icon--errmsg");
 
   constructor() {
-    // super();
     this.exitErrorMsg();
   }
 
@@ -73,7 +71,6 @@ export default class View {
    */
   gettingDate(uni) {
     const date = new Date(uni * 1000);
-    // console.log(date);
     const local = navigator.language;
     const options = {
       weekday: "long",
@@ -83,7 +80,6 @@ export default class View {
     const dateSplit = new Intl.DateTimeFormat(local, options)
       .format(date)
       .split(" ");
-    // console.log(dateSplit);
     return dateSplit;
   }
 
@@ -138,9 +134,6 @@ export default class View {
    * and inputed in to 'generateBackground' method.
    */
   dynamicBackgrounds(type, description) {
-    console.log("dynamicBackgrounds background active");
-    // console.log(this._data.weathType);
-    // console.log(this._data.WeathDescript);
     // Snowy Weather Background
     if (type === "Snow") {
       const snow = this.randomBackgrounds(config.BACKGROUNDSNOW__DAY);
@@ -222,8 +215,6 @@ export default class View {
    * takes in image source
    */
   generateBackground(image) {
-    console.log("generate background active");
-    console.log(this._backgroundElement);
     this._backgroundElement.style.backgroundImage = `url(${image})`;
   }
 

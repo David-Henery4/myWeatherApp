@@ -14,7 +14,6 @@ class WeekView extends View {
     super();
     this._weekOpen();
     this._weekClose();
-    // this.dataCheck()
   }
 
   /**
@@ -31,7 +30,6 @@ class WeekView extends View {
    */
   _weekOpen() {
     this._weekBtn.addEventListener("click", this._toggleWeek.bind(this));
-    console.log("open");
   }
 
   /**
@@ -40,7 +38,6 @@ class WeekView extends View {
    */
   _weekClose() {
     this._closeBtn.addEventListener("click", this._toggleWeek.bind(this));
-    console.log("close");
   }
 
   /**

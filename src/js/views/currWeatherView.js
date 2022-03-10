@@ -1,10 +1,4 @@
 import View from "./view.js";
-import cloudPlaceHolder from "url:../../images/cloudPlaceHolder.png";
-import * as config from "../config.js";
-import cloudy from "url:../../images/clouds.jpg"
-import clear__skies from "url:../../images/clear-skies.jpg"
-// let image;
-// import backgroundImage from "url:../../images/foggy.jpg";
 
 //
 /**
@@ -17,7 +11,6 @@ class CurrView extends View {
   //
   constructor() {
     super();
-    // this._dynamicBackgrounds()
   }
 
   /**

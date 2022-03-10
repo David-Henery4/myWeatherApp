@@ -33,7 +33,6 @@
   background-color: $overlay-color;
   top: 0;
   left: 0;
-  // z-index: 0;
 }
 
 .cities__box {
@@ -53,7 +52,6 @@
 .cities__box:nth-child(even) {
   border-left: 2px solid $primary-color;
 }
-// nth child odd to get borders
 .cities__box:nth-child(1),
 .cities__box:nth-child(2) {
   border-top: none;

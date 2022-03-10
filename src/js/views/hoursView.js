@@ -1,5 +1,5 @@
 import View from "./view.js";
-import CustomExitSvg from "url:../../images/CustomExitSvg.svg";
+
 
 /**
  * @class 'Search' contains everything to do with the search menu UI (inherits from the 'View' parent)
@@ -23,7 +23,6 @@ class Hours extends View {
   _toggleSlide() {
     this._hoursCompleteSection.classList.toggle("slide-hours");
     this.overlay();
-    // this._hoursOverlay.classList.toggle("hours__overlay--active");
   }
 
   /**
@@ -43,7 +42,6 @@ class Hours extends View {
       "click",
       this._toggleSlide.bind(this)
     );
-    // (Only needed event delegation when the element are dynamicly created because we cant add event to them)
   }
 
   /**

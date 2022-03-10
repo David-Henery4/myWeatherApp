@@ -28,6 +28,7 @@ class Cities extends View {
   _openCities() {
     this._citiesBtn.addEventListener("click", this._toggleCities.bind(this));
   }
+  
   /**
    * @method _openCities Listens for click on the exit icon in the cities UI to activate the '_toggleCities' method
    */

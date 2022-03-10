@@ -1,6 +1,5 @@
 @import "variables";
 @import "errorMsg";
-@import "renderSpinner";
 @import "footerBtns";
 @import "citiesSection";
 @import "weekForecast";
@@ -18,7 +17,6 @@
 }
 
 body {
-  // background-color: red;
   background-image: url(/src/images/clear-skies-morning.jpg);
   background-repeat: no-repeat;
   background-position: 100%;

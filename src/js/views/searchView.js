@@ -1,8 +1,5 @@
 import View from "./view.js";
-import * as model from "../model";
-//
-console.log("Search View Working");
-//
+
 
 /**
  * @class 'Search' contains everything to do with the search menu UI (inherits from the 'View' parent)
@@ -24,7 +21,6 @@ class Search extends View {
   _searchIconAction() {
     this._searchContainer.classList.remove("page__remove");
     this.overlay();
-    console.log(this._searchBtn);
   }
 
   /**

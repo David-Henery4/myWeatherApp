@@ -1,5 +1,5 @@
 //                          Model
-console.log("Model: Working");
+
 
 // Weather Object (openweathermap)
 /**
@@ -48,15 +48,9 @@ export const fetchWeatherCurrent = async function (lat, long) {
     if (!res.ok) {
       throw new Error(`error found: ${res.status}`);
     }
-    console.log(res);
     const data = await res.json();
-    console.log(data);
     handlingCurWeather(data);
-    console.log(overallWeathData2.current)
-    // return overallWeathData2.current;
   } catch (err) {
-    console.log(err.message)
-    console.error(`error stuck here: ${err.message}`)
     throw err
   }
 };
@@ -68,8 +62,7 @@ export const fetchWeatherCurrent = async function (lat, long) {
  * Weather data from the fetchWeatherCurrent function
  */
 export const handlingCurWeather = function (data) {
-  // messy, must be better way! (Maybe destructuring or loop)
-  console.log(data);
+  // messy, find better way! (Maybe destructuring or loop)
   overallWeathData2.current.WeathDescript = data.weather[0].description;
   overallWeathData2.current.weathType = data.weather[0].main;
   overallWeathData2.current.weathIcon = data.weather[0].icon;
@@ -99,12 +92,8 @@ export const fetchForecastData = async function (lat, long) {
     const URL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude=current&units=metric&appid=03c0ab070c431f94285f47bf8bf82c9c`;
     const res = await fetch(URL);
     const data = await res.json();
-    console.log(data);
     handlingHourlyData(data);
     handlingNextWeekData(data);
-    // const unix = data.daily[0].dt;
-    // console.log(new Date(unix*1000))
-    console.log(overallWeathData2.current)
   } catch(err){
     throw err.message
   }
@@ -118,7 +107,6 @@ export const fetchForecastData = async function (lat, long) {
 const handlingHourlyData = function (hours) {
   const next5Hours = hours.hourly.slice(1, 6);
   overallWeathData2.forecast.hours = next5Hours;
-  console.log(overallWeathData2);
 };
 
 /**
@@ -129,7 +117,6 @@ const handlingHourlyData = function (hours) {
 const handlingNextWeekData = function (week) {
   const next5Days = week.daily.slice(1, 6);
   overallWeathData2.forecast.nextWeek = next5Days;
-  console.log(overallWeathData2);
 };
 
 //            FETCHING CITIES DATA
@@ -170,7 +157,6 @@ export const fetchCitiesCoords = async function () {
     const cityCoordsRay = cityLocations.flat();
     return cityCoordsRay;
   } catch (err){
-    console.log('Passes though here')
       throw err
   }
 };
@@ -204,7 +190,6 @@ export const fetchCitiesData = async function (cityCoords) {
     // sort and distribute
     cityData.sort((a, b) => a.name.localeCompare(b.name));
     overallWeathData2.cities = cityData;
-    console.log(`This is flowing`, overallWeathData2);
     return overallWeathData2;
   } catch(err){
     throw err
@@ -222,10 +207,8 @@ export const fetchCitiesData = async function (cityCoords) {
  */
 export const fetchSearchCoords = async function (query) {
   try{
-    // console.log(query)
     const queryLower = query.slice(1);
     const readyquery = query[0].toUpperCase().concat(queryLower);
-    console.log(readyquery);
     overallWeathData2.userSearches = readyquery;
     const res = await fetch(
       `http://api.openweathermap.org/geo/1.0/direct?q=${readyquery}&limit=1&appid=03c0ab070c431f94285f47bf8bf82c9c`
@@ -234,10 +217,7 @@ export const fetchSearchCoords = async function (query) {
       throw new Error(`Error from Response: ${res.status}`)
     }
     const data = await res.json();
-    console.log(data);
     return data;
-    // fetchSearchData(data)
-    // fetchCurrentData(data)
   } catch(err){
     throw err
   }
@@ -256,11 +236,9 @@ export const fetchSearchData = async function (coordData) {
       throw new Error(`Error from Response: ${res.status}`);
     }
     const data = await res.json();
-    console.log(data);
     handlingHourlyData(data);
     handlingNextWeekData(data);
   } catch(err){
-    console.log(`from forecast from query: ${err.message}`)
     throw err
   }
 };
@@ -278,11 +256,8 @@ export const fetchCurrentData = async function (coordData) {
       throw new Error(`Error from Response: ${res.status}`);
     }
     const data = await res.json();
-    console.log(data);
-    console.log(overallWeathData2);
     handlingCurWeather(data);
   } catch (err) {
-    console.log(`from current from query: ${err.message}`);
     throw err;
   }
 };
