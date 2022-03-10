@@ -17,7 +17,7 @@ import foggy_Path from "url:../images/foggy-path.jpg";
 import foggy_Forrest from "url:../images/foggy-forrest.jpg";
 import foggy_Lane from "url:../images/foggy-lane.jpg";
 // misty image imports
-import misty_forrest from "url:../images/Misty-forrest.jpg";
+import misty_forrest from "url:../images/misty-forrest.jpg";
 import misty_street from "url:../images/misty-street.jpg";
 import misty_trees from "url:../images/misty-trees.jpg"
 
