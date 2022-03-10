@@ -48,6 +48,8 @@ make it easier overall to read and follow by spliting the code up into designate
 It also helped when it came to using classes by creating reusable methods that can be reused in different
 places in the project, which enabled me not to repeat myself in areas where it was unnessary.
 
+**J.S docs** comments have been added to help maintain the readability of the code and to ensure it is easier for me or anybody else who reads it in the future to understand.
+
 ## Improvements to be made
 
 
