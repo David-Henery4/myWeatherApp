@@ -1,7 +1,6 @@
 //        Dynamic weather background images
 
-// might have to import images with "url"?
-// import dampDrizzle from "url:../images/*.jpg"; (try to find way to import all)
+// THIS MODULE CONTAINS ALL BACKGROUND IMAGES AND ARRAYS THAT ARE USED FOR CREATING DYNAMIC BACKGROUNDS BASED ON THE WEAHTER!
 
 // rain image imports
 import dampDrizzle from "url:../images/damp-drizzle.jpg";

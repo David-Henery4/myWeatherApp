@@ -7,7 +7,9 @@ import clear__skies from "url:../../images/clear-skies.jpg"
 // import backgroundImage from "url:../../images/foggy.jpg";
 
 //
-
+/**
+ * @class 'CurrView' contains everything to do with the Current weather UI (inherits from the 'View' parent)
+ */
 class CurrView extends View {
   _parentElement = document.querySelector(".current__day--wrap");
   _backgroundElement = document.getElementById("body__element");
@@ -18,6 +20,13 @@ class CurrView extends View {
     // this._dynamicBackgrounds()
   }
 
+  /**
+   * Takes in unix time and converts to 24 hour format string.
+   * @param {number} time 
+   * Takes in unix time
+   * @returns {string} Time in 24 hour format
+   * 
+   */
   _formatSunriseSunset(time) {
     const newTime = new Date(time * 1000);
     const hour = newTime.getHours().toString().padStart(2, 0);
@@ -25,12 +34,21 @@ class CurrView extends View {
     return `${hour}:${min}`;
   }
 
-  backgroundsData(){
+  /**
+   * @method backgroundsData Takes weather type & description and in puts them into the 'dynamicBackgrounds' function to create a random background image based on the current weather.
+   */
+  backgroundsData() {
     const type = this._data.weathType;
     const descript = this._data.WeathDescript;
-    this.dynamicBackgrounds(type,descript)
+    this.dynamicBackgrounds(type, descript);
   }
 
+  /**
+   * Contains markup specfic to the currrentWeatherView
+   * @returns {string}
+   * A markup which has been updated with relevent data
+   * and ready to be rendered to the currentWeather UI by the 'render' method.
+   */
   _generateMarkup() {
     return `<img class="weather__icon" src="http://openweathermap.org/img/wn/${
       this._data.weathIcon
