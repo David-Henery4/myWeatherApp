@@ -16,9 +16,6 @@
   font-family: $main-font;
 }
 
-html{
-  height: -webkit-fill-available;
-}
 
 body {
   background-image: url(/src/images/clear-skies-morning.jpg);
@@ -28,7 +25,6 @@ body {
   padding: 0 5%;
   width: 100vw;
   height: 100vh;
-  height: -webkit-fill-available;
   overflow: hidden;
   // helps solve overflow on mobile
   touch-action: none;
