@@ -16,10 +16,7 @@
   font-family: $main-font;
 }
 
-html{
-  height: 100%;
-  width: 100%;
-}
+
 body {
   background-image: url(/src/images/clear-skies-morning.jpg);
   background-repeat: no-repeat;
@@ -27,7 +24,7 @@ body {
   background-size: cover;
   padding: 0 5%;
   width: 100vw;
-  height: 100%;
+  height: 100vh;
   overflow: hidden;
   // helps solve overflow on mobile
   // although still not perfect
