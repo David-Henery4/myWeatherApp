@@ -34,8 +34,8 @@ body {
   overflow: hidden;
   // helps solve overflow on mobile
   // although still not perfect
-  touch-action: none;
-  -ms-touch-action: none;
+  // touch-action: none;
+  // -ms-touch-action: none;
 }
 
 // .app__wrap{

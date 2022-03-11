@@ -112,6 +112,8 @@ const init = function(){
 }
 init()
 
+
+
 // didnt work
 // setTimeout(function(){
 //   window.addEventListener("resize", () => {
@@ -121,9 +123,10 @@ init()
 //   });
 // },2000)
 
-function resetHeight(){
-  document.body.style.height = `${window.innerHeight}px`
-}
+// dont work
+// function resetHeight(){
+//   document.body.style.height = `${window.innerHeight}px`
+// }
 
-window.addEventListener("resize", resetHeight)
-resetHeight()
+// window.addEventListener("resize", resetHeight)
+// resetHeight()
