@@ -112,10 +112,11 @@ const init = function(){
 }
 init()
 
-setTimeout(function(){
-  window.addEventListener("resize", () => {
-    let vh = window.innerHeight * 0.01;
-    document.documentElement.style.setProperty("--vh", `${vh}px`);
-    console.log("works")
-  });
-},2000)
+// didnt work
+// setTimeout(function(){
+//   window.addEventListener("resize", () => {
+//     let vh = window.innerHeight * 0.01;
+//     document.documentElement.style.setProperty("--vh", `${vh}px`);
+//     console.log("works")
+//   });
+// },2000)
