@@ -26,7 +26,11 @@ body {
   height: 100vh;
   overflow: hidden;
 }
-
+.body__wrapper{
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
 .overlay {
   height: 100%;
   width: 100%;
