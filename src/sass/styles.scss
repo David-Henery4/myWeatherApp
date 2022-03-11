@@ -16,9 +16,9 @@
   font-family: $main-font;
 }
 
-html, body{
-height: 100%;
-}
+// html, body{
+// height: 100%;
+// }
 
 body {
   background-image: url(/src/images/clear-skies-morning.jpg);
@@ -29,7 +29,7 @@ body {
   width: 100vw;
   // been using VH by default
   // height: 100vh;
-  // height: 100vh;
+  height: 100vh;
   // didnt work
   // height: calc(var(--vh, 1vh) * 100);
   overflow: hidden;
