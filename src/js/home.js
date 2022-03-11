@@ -113,3 +113,9 @@ const init = function(){
 init()
 
 
+// ViewHeight
+window.addEventListener("resize", function(){
+  let vh = window.innerHeight*0.01;
+  document.documentElement.style.setProperty("--vh", `${vh}px`);
+  console.log("working")
+});
