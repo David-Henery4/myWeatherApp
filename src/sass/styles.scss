@@ -16,6 +16,10 @@
   font-family: $main-font;
 }
 
+html {
+  height: -webkit-fill-available;
+}
+
 body {
   background-image: url(/src/images/clear-skies-morning.jpg);
   background-repeat: no-repeat;
@@ -24,13 +28,14 @@ body {
   padding: 0 5%;
   width: 100vw;
   height: 100vh;
+  min-height: -webkit-fill-available;
   overflow: hidden;
 }
-.body__wrapper{
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-}
+// .body__wrapper{
+//   height: 100%;
+//   width: 100%;
+//   overflow: hidden;
+// }
 .overlay {
   height: 100%;
   width: 100%;

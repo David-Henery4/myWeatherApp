@@ -32,36 +32,34 @@
     <title>MyWeather App</title>
   </head>
   <body id="body__element">
-    <div class="body__wrapper">
+    <div class="overlay"></div>
 
-      <div class="overlay"></div>
-      
-      <!-- SEARCH LOCATION FORM -->
-      <div class="search__page--wrap">
-        <div class="search__page--content">
+    <!-- SEARCH LOCATION FORM -->
+    <div class="search__page--wrap">
+      <div class="search__page--content">
         <div class="app__title--wrap">
           <h4 class="app__title">
             my<span><span>W</span>eatherApp</span>
           </h4>
         </div>
-        
+
         <div class="search__container">
           <form class="search__location--sect search__sect--layout" action="">
             <label class="search__location--title" for="search-location"
-            >Seach Location</label
+              >Seach Location</label
             >
             <input
-            placeholder="Enter Location Name..."
-            class="search__location--input"
-            type="text"
-            name="search-location"
-            id="search-location"
-            autocomplete="off"
+              placeholder="Enter Location Name..."
+              class="search__location--input"
+              type="text"
+              name="search-location"
+              id="search-location"
+              autocomplete="off"
             />
           </form>
-          
+
           <p>or</p>
-          
+
           <div class="search__current--sect search__sect--layout">
             <label for="">Check Current Location</label>
             <button class="current__weath--btn" id="current-weather-btn">
@@ -71,7 +69,7 @@
         </div>
       </div>
     </div>
-    
+
     <!-- Next Current Hours SLIDE IN -->
     <div class="hours__overlay hours__overlay--active"></div>
     <div class="hours__slide--wrap">
@@ -82,7 +80,7 @@
         </div>
         <h4 class="hours__title">Next Hours</h4>
       </div>
-      
+
       <!-- Box Container -->
       <div class="hours__container">
         <!-- Hour Box One -->
@@ -96,7 +94,7 @@
     </div>
 
     <!-- MAIN CURRENT PAGE -->
-    
+
     <!-- Header/Date & Time -->
     <header>
       <div class="date--time">
@@ -105,14 +103,14 @@
       </div>
       <img class="search__icon" src="/src/images/search-icon.svg" alt="" />
     </header>
-    
+
     <!-- Current Day Main Weather Details -->
     <section class="current__day--wrap">
       <!-- Weather icon (Might wrap icon) -->
       <img
-      class="weather__icon"
-      src="/src/images/cloudPlaceHolder.png"
-      alt=""
+        class="weather__icon"
+        src="/src/images/cloudPlaceHolder.png"
+        alt=""
       />
       <!-- Weather Titles (Temp/Weather) -->
       <div class="current__weath--titles">
@@ -120,78 +118,78 @@
         <div class="title__seperator"></div>
         <h1 class="curr__weath">Raining</h1>
       </div>
-      
+
       <!-- Current Weather Details -->
       <div class="current__weath--details">
         <div class="sunrise">
           <p>17:48</p>
           <p>Sunrise</p>
         </div>
-        
+
         <div class="sunset">
           <p>06:33</p>
           <p>Sunset</p>
         </div>
-        
+
         <div class="feelsLike">
           <p>3C</p>
           <p>Feels Like</p>
         </div>
-        
+
         <div class="wind">
           <p>7mph</p>
           <p>Wind</p>
         </div>
-        
+
         <div class="high__temp">
           <p>20C</p>
           <p>High</p>
         </div>
-        
+
         <div class="low__temp">
           <p>20C</p>
           <p>Low</p>
         </div>
       </div>
     </section>
-    
+
     <!-- Location -->
     <div class="location__wrap">
       <h4>London</h4>
     </div>
-    
+
     <!-- Footer Buttons -->
     <footer class="footer-btns">
       <div class="btn__wrap">
         <button class="week__btn">Week</button>
       </div>
-      
+
       <div class="btn__line"></div>
-      
+
       <div class="btn__wrap">
         <button class="today__btn">Today</button>
       </div>
-      
+
       <div class="btn__line"></div>
-      
+
       <div class="btn__wrap">
         <button class="cities__btn">Cities</button>
       </div>
     </footer>
 
     <!-- NEXT FIVE DAY FORECAST PAGE -->
-    
+
     <section class="week__forecast--sect" id="week__image">
       <div class="weeks__overlay"></div>
-      
+
       <div class="weeks__container">
         <div class="week__box">
           <p class="week__day">Monday</p>
           <div class="week__icon--wrap">
             <img
-            class="week__icon"
-            src="/src/images/cloudPlaceHolder.png"
-            alt=""
+              class="week__icon"
+              src="/src/images/cloudPlaceHolder.png"
+              alt=""
             />
           </div>
           <p class="week__date">16th Jan</p>
@@ -199,19 +197,19 @@
           <p class="week__weather">Broken Clouds</p>
         </div>
       </div>
-      
+
       <img
-      class="right__icon"
-      src="/src/images/right--arrow--icon.svg"
-      alt=""
+        class="right__icon"
+        src="/src/images/right--arrow--icon.svg"
+        alt=""
       />
     </section>
-    
+
     <!-- TOP 10 CITIES PAGE -->
-    
+
     <section class="cities__forecast--sect">
       <div class="cities__overlay"></div>
-      
+
       <div class="cities__container">
         <div class="cities__box">
           <h4 class="cities__name">London</h4>
@@ -221,7 +219,7 @@
           </div>
         </div>
       </div>
-      
+
       <img class="left__icon" src="/src/images/left--arrow--icon.svg" alt="" />
     </section>
     <!--**************************************-->
@@ -232,13 +230,12 @@
           class="exit__icon--errmsg"
           src="/src/images/error-exit-icon.svg"
           alt=""
-          />
-          <div class="error__msg--title"><h4>Sorry :(</h4></div>
-          <div class="error__msg--text">
-            <p>There has been a error, please try again later.</p>
-          </div>
+        />
+        <div class="error__msg--title"><h4>Sorry :(</h4></div>
+        <div class="error__msg--text">
+          <p>There has been a error, please try again later.</p>
         </div>
       </div>
     </div>
   </body>
-  </html>
+</html>
