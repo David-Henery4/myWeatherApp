@@ -16,9 +16,9 @@
   font-family: $main-font;
 }
 
-// html, body{
-// height: 100%;
-// }
+html, body{
+height: 100%;
+}
 
 body {
   background-image: url(/src/images/clear-skies-morning.jpg);
@@ -27,15 +27,16 @@ body {
   background-size: cover;
   padding: 0 5%;
   width: 100vw;
-  height: 100vh;
+  // been using VH by default
+  // height: 100vh;
   // height: 100vh;
   // didnt work
   // height: calc(var(--vh, 1vh) * 100);
   overflow: hidden;
   // helps solve overflow on mobile
   // although still not perfect
-  // touch-action: none;
-  // -ms-touch-action: none;
+  touch-action: none;
+  -ms-touch-action: none;
 }
 
 // .app__wrap{
