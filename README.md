@@ -20,7 +20,7 @@ It also contains a couple of extra features:
 
 ## How to use
 
-To use myWeather app just follow the link below and type in a location to see the weather for that location and then press enter or click on the get current weather button to get the weather for your current location.
+To use myWeather app just follow the link below and type in a location to see the weather for that location and then press enter or click on the get current weather button to get the weather for your current location. Check it out [Here](https://extremo-weather-finder.netlify.app/)
 
 ![starting-gif](./readme-Gif/myWeatherAppGif.gif)
 
